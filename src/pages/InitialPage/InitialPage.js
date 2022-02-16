@@ -1,14 +1,13 @@
 import React, { useEffect } from "react"
+import { InitialContainer, LogoContainer } from "./styled"
+import Logo from "../../assets/images/logo-future-eats@2x.png"
 
 const InitialPage = () => {
-
-  useEffect(()=>{
- 
-  },[])
+  useEffect(() => {}, [])
   return (
-    <div>
-      <h1>InitialPage</h1>
-    </div>
+    <InitialContainer>
+      <LogoContainer src={Logo} alt="Logo iFuture" />
+    </InitialContainer>
   )
 }
 
