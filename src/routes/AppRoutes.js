@@ -13,6 +13,7 @@ import EditAdressPage from "../pages/EditProfilePage/EditProfilePage"
 import { GlobalStorage } from "../GlobalState/GlobalState"
 
 const AppRoutes = () => {
+
   return (
     <BrowserRouter>
       <GlobalStorage>
