@@ -1,13 +1,22 @@
-import React, { useEffect } from "react"
-import { InitialContainer, LogoContainer } from "./styled"
-import Logo from "../../assets/images/logo-future-eats@2x.png"
+import React from 'react'
+import { InitialContainer, LogoContainer, ImgElarge } from './styled'
+import { useNavigate } from 'react-router-dom'
+import { LoginPage } from '../../routes/AppRoutes'
+import Logo from '../../assets/images/logo-future-eats@2x.png'
 
 const InitialPage = () => {
-  useEffect(() => {}, [])
+  const navigate = useNavigate()
+
+  setTimeout(() => {
+    navigate('/login')
+  }, 2000)
+
   return (
-    <InitialContainer>
-      <LogoContainer src={Logo} alt="Logo iFuture" />
-    </InitialContainer>
+    <ImgElarge>
+      <InitialContainer>
+        <LogoContainer src={Logo} alt="Logo iFuture" />
+      </InitialContainer>
+    </ImgElarge>
   )
 }
 
