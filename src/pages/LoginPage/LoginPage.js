@@ -2,14 +2,18 @@ import React from 'react'
 import TextField from '@mui/material/TextField'
 import useForm from '../../hooks/useForm'
 // import { Button } from '@mui/material'
-import { Container, StyledTextField, StyledButton } from './styled'
+import { Container, StyledTextField, StyledButton, StyledButtonSignUp } from './styled'
 import logo from '../../assets/images/logo-future-eats-red.png'
+import { goToSingUpPage } from '../../routes/coordinator'
+import { useNavigate } from 'react-router-dom'
 
 const LoginPage = () => {
   const { form, onChangeForm, clearFields } = useForm({
     email: '',
     password: ''
   })
+
+  const navigate = useNavigate()
 
   return (
     <Container>
@@ -46,7 +50,10 @@ const LoginPage = () => {
         >
           Entrar
         </StyledButton>
-        <p>Não possui cadastro? Clique aqui.</p>
+        <StyledButtonSignUp 
+          onClick={()=> goToSingUpPage(navigate)} >
+          Não possui cadastro? Clique aqui.
+        </StyledButtonSignUp>
       </form>
     </Container>
   )

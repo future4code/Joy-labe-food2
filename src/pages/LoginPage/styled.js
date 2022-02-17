@@ -57,3 +57,13 @@ export const StyledButton = styled.button`
   background-color: ${primaryColor};
   cursor: pointer;
 `
+
+export const StyledButtonSignUp = styled.button`
+  width: 20.5rem;
+  height: 2.625rem;
+  padding: 0.75rem 1rem;
+  font-weight: bold;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+`
