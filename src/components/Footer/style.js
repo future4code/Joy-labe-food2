@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
 export const FooterDiv=styled.div`
-position: fixed;
-bottom: 0px;
 width: 100%;
 background-color: white;
-
+margin-top: 0.5rem;
+position: fixed;
+bottom: 0;
 `
 
 export const FooterFlex=styled.div`
@@ -15,6 +15,4 @@ border-top: 1px solid rgb(184,184,184);
 height: 42px;
 padding: 5px;
 align-items: center;
-
-
 `

@@ -1,4 +1,4 @@
-import { Button, TextField } from '@mui/material'
+import { TextField } from '@mui/material'
 import styled from 'styled-components'
 import { neutralColor, primaryColor } from '../../constants/colors'
 
@@ -7,6 +7,7 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin: 60px 0;
 
   img {
     width: 6.5rem;
@@ -19,7 +20,7 @@ export const Container = styled.div`
   p {
     width: 18.5rem;
     height: 1.125rem;
-    font-family: Roboto;
+    font-family: "Roboto";
     font-size: 1rem;
     font-weight: normal;
     font-stretch: normal;
