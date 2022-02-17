@@ -9,15 +9,17 @@ export const ContainerHeader = styled.div`
   text-align: center;
   border-bottom: 1px solid ${borderColor};
   margin-bottom: 8px;
-  position: fixed;
-  top: 0;
   z-index: 1;
   width: 100%;
   background-color: white;
+  position: fixed;
+  top: 0;
+  font-family:  "Roboto";
+  
   p {
     align-self: center;
   }
-  font-family:  "Roboto";
+  
   img {
     width: 36px;
     height: 36px;
