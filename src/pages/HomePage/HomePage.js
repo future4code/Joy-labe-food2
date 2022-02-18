@@ -1,21 +1,39 @@
-import React from 'react'
-import Footer from '../../components/Footer'
-import { Header } from '../../components/Header'
-import SearchIcon from '@mui/icons-material/Search'
+import React from "react"
+import Footer from "../../components/Footer"
+import { Header } from "../../components/Header"
+import SearchIcon from "@mui/icons-material/Search"
 import {
   CategoryWrapper,
   Container,
   ContainerCatetories,
-  StyledTextField
-} from './styled'
-import { InputAdornment } from '@mui/material'
-import RestaurantCard from '../../components/RestaurantCard/RestaurantCard'
-import { useNavigate, useParams } from 'react-router-dom'
-import { goRestaurantPage } from '../../routes/coordinator'
+  StyledTextField,
+} from "./styled"
+import { InputAdornment } from "@mui/material"
+import RestaurantCard from "../../components/RestaurantCard/RestaurantCard"
+import useRequestData from "../../hooks/useRequestData"
 
 const HomePage = () => {
-  const navigate = useNavigate()
-  const { id } = useParams
+  const { data } = useRequestData({}, "/restaurants")
+
+  const categoriesList = data.restaurants
+    ?.map((restaurant) => {
+      return restaurant.category
+    })
+    .sort((a, b) => {
+      return a.localeCompare(b)
+    })
+
+  const categories = [...new Set(categoriesList)].map((category) => {
+    return (
+      <CategoryWrapper key={category}>
+        <span>{category}</span>
+      </CategoryWrapper>
+    )
+  })
+
+  const restaurantsList = data.restaurants?.map((restaurant) => {
+    return <RestaurantCard key={restaurant.id} restaurant={restaurant} />
+  })
 
   return (
     <div>
@@ -26,7 +44,7 @@ const HomePage = () => {
           type="search"
           placeholder="Restaurante"
           InputProps={{
-            color: 'text',
+            color: "text",
             startAdornment: (
               <InputAdornment position="start">
                 <SearchIcon />
@@ -34,22 +52,8 @@ const HomePage = () => {
             )
           }}
         />
-        <ContainerCatetories>
-          <CategoryWrapper>
-            <span>Burguer</span>
-          </CategoryWrapper>
-          <CategoryWrapper>
-            <span>Oriental</span>
-          </CategoryWrapper>
-          <CategoryWrapper>
-            <span>Massas</span>
-          </CategoryWrapper>
-          <CategoryWrapper>
-            <span>Saudável</span>
-          </CategoryWrapper>
-        </ContainerCatetories>
-        <RestaurantCard onClick={() => goRestaurantPage(navigate, id)} />
-        <RestaurantCard onClick={() => goRestaurantPage(navigate, id)} />
+        <ContainerCatetories>{categories}</ContainerCatetories>
+        {restaurantsList}
       </Container>
       <Footer />
     </div>

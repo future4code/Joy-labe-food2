@@ -17,7 +17,7 @@ export const Container = styled.div`
     width: 20.5rem;
     height: 7.5rem;
     margin: 0 0 0.75rem;
-    object-fit: contain;
+    object-fit: fill;
   }
 
   span {
@@ -49,7 +49,16 @@ export const ContainerDetails = styled.div`
     color: ${secondaryColor};
   }
 
-  .frete {
-    text-align: end;
-  }
+`
+
+export const ShippingText = styled.span`
+  font-family: "Roboto";
+  font-size: 1rem;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.39px;
+  color: ${secondaryColor};
+  text-align: end;
 `
