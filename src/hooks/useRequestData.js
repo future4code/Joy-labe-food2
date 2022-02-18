@@ -14,12 +14,12 @@ const useRequestData = (initialData, path) => {
   useEffect(() => {
     if (localStorage.getItem("token")) {
       axios
-        .get(`${BASE_URL} + ${path}`, headers)
+        .get(`${BASE_URL}${path}`, headers)
         .then(({ data }) => {
           setData(data)
         })
         .catch((err) => {
-          console.log(err.data.response.message)
+          console.log(err)
         })
     }
   }, [path])

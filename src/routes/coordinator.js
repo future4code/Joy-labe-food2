@@ -14,7 +14,7 @@ export const goToHomePage = (navigate) => {
     navigate("/pagina-inicial")
 }
 
-export const goRestaurantPage = (navigate, id) => {
+export const goToRestaurantPage = (navigate, id) => {
     navigate(`/restaurante/${id}`)
 }
 

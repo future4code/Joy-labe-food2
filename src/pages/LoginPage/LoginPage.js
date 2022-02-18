@@ -26,7 +26,7 @@ const LoginPage = () => {
     axios
       .post(`${BASE_URL}/login`, body)
       .then(({ data }) => {
-        localStorage.setItem(data.token, 'token')
+        localStorage.setItem("token", data.token)
         goToHomePage(navigate)
       })
       .catch(error => {
