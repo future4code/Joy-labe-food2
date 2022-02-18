@@ -1,17 +1,17 @@
-import React from "react"
-import Footer from "../../components/Footer"
-import { Header } from "../../components/Header"
-import SearchIcon from "@mui/icons-material/Search"
+import React from 'react'
+import Footer from '../../components/Footer'
+import { Header } from '../../components/Header'
+import SearchIcon from '@mui/icons-material/Search'
 import {
   CategoryWrapper,
   Container,
   ContainerCatetories,
-  StyledTextField,
-} from "./styled"
-import { InputAdornment } from "@mui/material"
-import RestaurantCard from "../../components/RestaurantCard/RestaurantCard"
-import { useNavigate, useParams } from "react-router-dom"
-import { goRestaurantPage } from "../../routes/coordinator"
+  StyledTextField
+} from './styled'
+import { InputAdornment } from '@mui/material'
+import RestaurantCard from '../../components/RestaurantCard/RestaurantCard'
+import { useNavigate, useParams } from 'react-router-dom'
+import { goRestaurantPage } from '../../routes/coordinator'
 
 const HomePage = () => {
   const navigate = useNavigate()
@@ -26,12 +26,12 @@ const HomePage = () => {
           type="search"
           placeholder="Restaurante"
           InputProps={{
-            color: "text",
+            color: 'text',
             startAdornment: (
               <InputAdornment position="start">
                 <SearchIcon />
               </InputAdornment>
-            ),
+            )
           }}
         />
         <ContainerCatetories>
@@ -50,8 +50,6 @@ const HomePage = () => {
         </ContainerCatetories>
         <RestaurantCard onClick={() => goRestaurantPage(navigate, id)} />
         <RestaurantCard onClick={() => goRestaurantPage(navigate, id)} />
-       
-        
       </Container>
       <Footer />
     </div>

@@ -1,6 +1,6 @@
-import { TextField } from "@mui/material"
-import styled from "styled-components"
-import { neutralColor } from "../../constants/colors"
+import { TextField } from '@mui/material'
+import styled from 'styled-components'
+import { neutralColor } from '../../constants/colors'
 
 export const Container = styled.div`
   display: flex;
@@ -8,6 +8,7 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   margin: 60px 0;
+  height: auto;
 `
 
 export const StyledTextField = styled(TextField)`
@@ -42,7 +43,7 @@ export const CategoryWrapper = styled.div`
     width: 5.438rem;
     height: 1.125rem;
     margin: 0 0.5rem 0 0;
-    font-family: "Roboto";
+    font-family: 'Roboto';
     font-size: 1rem;
     font-weight: normal;
     font-stretch: normal;
