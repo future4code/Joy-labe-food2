@@ -4,7 +4,7 @@ import { Container, StyledTextField, StyledButton } from "./styled"
 import useForm from "../../hooks/useForm"
 import logo from "../../assets/images/logo-future-eats-red.png"
 import { useNavigate } from "react-router-dom"
-import { goToAdressPage } from "../../routes/coordinator"
+import { goToAddressPage } from "../../routes/coordinator"
 
 const SingUpPage = () => {
   const { form, onChangeForm, clearFields } = useForm({
@@ -79,7 +79,7 @@ const SingUpPage = () => {
             required
           />
           <StyledButton
-            onClickCapture={() => goToAdressPage(navigate)}
+            onClickCapture={() => goToAddressPage(navigate)}
             textPrimary={"primary"}
             color={"primary"}
             fullWidth
