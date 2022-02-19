@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useState} from "react"
 import Footer from "../../components/Footer"
 import { Header } from "../../components/Header"
 import SearchIcon from "@mui/icons-material/Search"
@@ -15,6 +15,19 @@ import useRequestData from "../../hooks/useRequestData"
 const HomePage = () => {
   const { data } = useRequestData({}, "/restaurants")
 
+  const [selectedCategory, setSelectedCategory] = useState("")
+
+  const filterByCategory  = () => {
+    const filters = data.restaurants?.filter((restaurant)=> {
+      if(restaurant.category === selectedCategory ) 
+      return true
+    })
+
+    return filters.map((restaurant) => {
+      return <RestaurantCard key={restaurant.id} restaurant={restaurant} />
+    })
+  }
+
   const categoriesList = data.restaurants
     ?.map((restaurant) => {
       return restaurant.category
@@ -25,7 +38,9 @@ const HomePage = () => {
 
   const categories = [...new Set(categoriesList)].map((category) => {
     return (
-      <CategoryWrapper key={category}>
+      <CategoryWrapper onClick={() => {
+        setSelectedCategory(category)
+      }} key={category}>
         <span>{category}</span>
       </CategoryWrapper>
     )
@@ -53,7 +68,7 @@ const HomePage = () => {
           }}
         />
         <ContainerCatetories>{categories}</ContainerCatetories>
-        {restaurantsList}
+        {selectedCategory !== "" ? filterByCategory() : restaurantsList}
       </Container>
       <Footer />
     </div>
