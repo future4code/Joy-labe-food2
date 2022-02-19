@@ -6,7 +6,7 @@ export const goToSingUpPage = (navigate) => {
     navigate("/cadastro")
 }
 
-export const goToAdressPage = (navigate) => {
+export const goToAddressPage = (navigate) => {
     navigate("/endereco")
 }
 
