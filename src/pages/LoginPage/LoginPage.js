@@ -47,6 +47,7 @@ const LoginPage = () => {
           type="email"
           placeholder="email@email.com"
           required
+          autoComplete
           label="E-mail"
           variant="outlined"
           name="email"
@@ -58,6 +59,7 @@ const LoginPage = () => {
           type="password"
           placeholder="Mínimo 6 caracteres"
           required
+          autoComplete
           label="Senha"
           variant="outlined"
           name="password"

@@ -8,7 +8,7 @@ const useRequestData = (initialData, path) => {
   const headers = {
     headers: {
       auth: localStorage.getItem("token"),
-    },
+    }
   }
 
   useEffect(() => {
