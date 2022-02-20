@@ -1,6 +1,6 @@
-import { TextField } from '@mui/material'
-import styled from 'styled-components'
-import { neutralColor } from '../../constants/colors'
+import { TextField } from "@mui/material"
+import styled from "styled-components"
+import { neutralColor, primaryColor} from "../../constants/colors"
 
 export const Container = styled.div`
   display: flex;
@@ -26,6 +26,7 @@ export const ContainerCatetories = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  cursor: pointer;
   overflow: scroll;
   scroll-behavior: smooth;
   scrollbar-width: none;
@@ -43,7 +44,7 @@ export const CategoryWrapper = styled.div`
     width: 5.438rem;
     height: 1.125rem;
     margin: 0 0.5rem 0 0;
-    font-family: 'Roboto';
+    font-family: "Roboto";
     font-size: 1rem;
     font-weight: normal;
     font-stretch: normal;
@@ -51,6 +52,6 @@ export const CategoryWrapper = styled.div`
     line-height: normal;
     letter-spacing: -0.39px;
     text-align: center;
-    color: ${neutralColor};
+    color: ${({color}) => color === "primary" ? primaryColor : neutralColor};
   }
 `

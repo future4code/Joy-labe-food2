@@ -17,7 +17,9 @@ export const Container = styled.div`
     width: 20.5rem;
     height: 7.5rem;
     margin: 0 0 0.75rem;
-    object-fit: cover;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    object-fit: fill;
   }
 
   span {
