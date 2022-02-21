@@ -1,4 +1,4 @@
-import React, {useState} from "react"
+import React, { useState } from "react"
 import Footer from "../../components/Footer"
 import { Header } from "../../components/Header"
 import SearchIcon from "@mui/icons-material/Search"
@@ -14,13 +14,22 @@ import useRequestData from "../../hooks/useRequestData"
 
 const HomePage = () => {
   const { data } = useRequestData({}, "/restaurants")
+  const [selectedCategory, setSelectedCategory] = useState({
+    active: false,
+    category: "",
+  })
 
-  const [selectedCategory, setSelectedCategory] = useState("")
+  const handleSelectCategory = (category) => {
+    if (selectedCategory.category === category && selectedCategory.active) {
+      setSelectedCategory({ active: false, category: "" })
+    } else {
+      setSelectedCategory({ active: true, category: category })
+    }
+  }
 
-  const filterByCategory  = () => {
-    const filters = data.restaurants?.filter((restaurant)=> {
-      if(restaurant.category === selectedCategory ) 
-      return true
+  const filterByCategory = () => {
+    const filters = data.restaurants?.filter((restaurant) => {
+      if (restaurant.category === selectedCategory.category) return true
     })
 
     return filters.map((restaurant) => {
@@ -38,9 +47,13 @@ const HomePage = () => {
 
   const categories = [...new Set(categoriesList)].map((category) => {
     return (
-      <CategoryWrapper onClick={() => {
-        setSelectedCategory(category)
-      }} key={category}>
+      <CategoryWrapper
+        onClick={() => {
+          handleSelectCategory(category)
+        }}
+        key={category}
+        color={category === selectedCategory.category ? "primary" : "neutral"}
+      >
         <span>{category}</span>
       </CategoryWrapper>
     )
@@ -64,11 +77,13 @@ const HomePage = () => {
               <InputAdornment position="start">
                 <SearchIcon />
               </InputAdornment>
-            )
+            ),
           }}
         />
         <ContainerCatetories>{categories}</ContainerCatetories>
-        {selectedCategory !== "" ? filterByCategory() : restaurantsList}
+        {selectedCategory.category !== ""
+          ? filterByCategory()
+          : restaurantsList}
       </Container>
       <Footer />
     </div>
