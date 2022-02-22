@@ -1,25 +1,26 @@
-import React from 'react'
-import axios from 'axios'
-import useForm from '../../hooks/useForm'
-// import { Button } from '@mui/material'
+import React from "react"
+import axios from "axios"
+import useForm from "../../hooks/useForm"
 import {
   Container,
   StyledTextField,
   StyledButton,
-  StyledButtonSignUp
-} from './styled'
-import logo from '../../assets/images/logo-future-eats-red.png'
-import { goToHomePage, goToSingUpPage } from '../../routes/coordinator'
-import { useNavigate } from 'react-router-dom'
-import { BASE_URL } from '../../constants/urls'
+  StyledButtonSignUp,
+} from "./styled"
+import logo from "../../assets/images/logo-future-eats-red.png"
+import { goToHomePage, goToSingUpPage } from "../../routes/coordinator"
+import { useNavigate } from "react-router-dom"
+import { BASE_URL } from "../../constants/urls"
+import useProtectedPage from "../../hooks/useProtectedPage"
 
 const LoginPage = () => {
+  useProtectedPage()
   const { form, onChangeForm, clearFields } = useForm({
-    email: '',
-    password: ''
+    email: "",
+    password: "",
   })
 
-  const handleLogin = e => {
+  const handleLogin = (e) => {
     e.preventDefault()
     const body = form
 
@@ -29,7 +30,7 @@ const LoginPage = () => {
         localStorage.setItem("token", data.token)
         goToHomePage(navigate)
       })
-      .catch(error => {
+      .catch((error) => {
         console.log(error.response.data.message)
       })
       .finally(clearFields)
@@ -67,8 +68,8 @@ const LoginPage = () => {
           onChange={onChangeForm}
         />
         <StyledButton
-          textPrimary={'primary'}
-          color={'primary'}
+          textPrimary={"primary"}
+          color={"primary"}
           fullWidth
           variant="contained"
         >

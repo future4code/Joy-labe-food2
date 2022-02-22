@@ -1,8 +1,5 @@
 import {
-  Button,
   FormControl,
-  getAccordionDetailsUtilityClass,
-  InputLabel,
   MenuItem,
   Select,
 } from "@mui/material"
@@ -12,7 +9,6 @@ import { Header } from "../../components/Header"
 import ProductCard from "../../components/ProductCard/ProductCard"
 import { RestaurantCardDetails } from "../../components/RestaurantCardDetails"
 import { GlobalState } from "../../GlobalState/GlobalState"
-
 import useRequestData from "../../hooks/useRequestData"
 import {
   ContainerModal,
@@ -21,6 +17,7 @@ import {
   ModalSelect,
   StyledButton,
 } from "./styled"
+
 const RestaurantPage = () => {
   const param = useParams()
   const { data } = useRequestData({}, `/restaurants/${param.id}`)
@@ -28,6 +25,10 @@ const RestaurantPage = () => {
   const [open, setOpen] = useState(false)
   const { cart, setCart } = useContext(GlobalState)
   const [prod, setProd] = useState({})
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart))
+  }, [cart])
 
   const openModal = (product) => {
     setOpen(true)
