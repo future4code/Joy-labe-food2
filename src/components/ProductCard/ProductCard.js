@@ -9,18 +9,20 @@ const ProductCard = ({ product, openModal }) => {
   const removeFromCart = (product) => {
     setCart(
       cart.filter((prod) => {
-        return product.id !== prod.id
+        if (prod.quantity > 1 && prod.id === product.id) {
+          return (prod.quantity = prod.quantity - 1)
+        } else return product.id !== prod.id
       })
     )
+    setOnCart(0)
   }
 
   useEffect(() => {
     cart.map((prod) => {
-      if (prod.name === product.name) return setOnCart(prod.quantity)
+      if (prod.id === product.id) return setOnCart(prod.quantity)
     })
+    console.log(cart);
   }, [cart])
-
-  console.log(cart)
 
   return (
     <ContainerProduct>

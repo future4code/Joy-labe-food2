@@ -72,8 +72,6 @@ const RestaurantPage = () => {
     )
   })
 
-  console.log(data)
-
   return (
     <div>
       <Header />
