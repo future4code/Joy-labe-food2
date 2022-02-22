@@ -14,6 +14,7 @@ const ProductCard = ({ product, openModal }) => {
         } else return product.id !== prod.id
       })
     )
+    localStorage.setItem("cart", JSON.stringify(cart))
     setOnCart(0)
   }
 
@@ -21,7 +22,7 @@ const ProductCard = ({ product, openModal }) => {
     cart.map((prod) => {
       if (prod.id === product.id) return setOnCart(prod.quantity)
     })
-    console.log(cart);
+    console.log(cart)
   }, [cart])
 
   return (
@@ -36,7 +37,7 @@ const ProductCard = ({ product, openModal }) => {
         ) : (
           <button onClick={() => removeFromCart(product)}>remover</button>
         )}
-        {onCart ? <QuantityContainer>{onCart}</QuantityContainer> : null}
+        {onCart ? <QuantityContainer>{onCart}</QuantityContainer> : ""}
       </ContainerDetails>
     </ContainerProduct>
   )
