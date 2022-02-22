@@ -1,13 +1,27 @@
-import React from "react"
-import {
-  ContainerDetails,
-  ContainerProduct,
-  QuantityContainer,
-  QuantityText,
-} from "./styled"
+import React, { useContext, useEffect, useState } from "react"
+import { GlobalState } from "../../GlobalState/GlobalState"
+import { ContainerDetails, ContainerProduct, QuantityContainer } from "./styled"
 
-const ProductCard = ({ product }) => {
-  console.log(product)
+const ProductCard = ({ product, openModal }) => {
+  const { cart, setCart } = useContext(GlobalState)
+  const [onCart, setOnCart] = useState(0)
+
+  const removeFromCart = (product) => {
+    setCart(
+      cart.filter((prod) => {
+        return product.id !== prod.id
+      })
+    )
+  }
+
+  useEffect(() => {
+    cart.map((prod) => {
+      if (prod.name === product.name) return setOnCart(prod.quantity)
+    })
+  }, [cart])
+
+  console.log(cart)
+
   return (
     <ContainerProduct>
       <img src={product.photoUrl} alt="Imagem do produto" />
@@ -15,8 +29,12 @@ const ProductCard = ({ product }) => {
         <h3>{product.name}</h3>
         <p>{product.description}</p>
         <span>R${Number(product.price).toFixed(2)}</span>
-        <button>adicionar</button>
-        <QuantityContainer>2</QuantityContainer>
+        {!onCart ? (
+          <button onClick={() => openModal(product)}>adicionar</button>
+        ) : (
+          <button onClick={() => removeFromCart(product)}>remover</button>
+        )}
+        {onCart ? <QuantityContainer>{onCart}</QuantityContainer> : null}
       </ContainerDetails>
     </ContainerProduct>
   )
