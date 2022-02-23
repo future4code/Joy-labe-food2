@@ -37,8 +37,14 @@ const RestaurantPage = () => {
 
   const addToCart = () => {
     setOpen(!open)
+    if(quantity>0)
     setCart([...cart, { ...prod, quantity: quantity }])
     setQuantity(0)
+
+  }
+
+  const closeModal=()=>{
+    setOpen(!open);
   }
 
   const handleChange = (event) => {
@@ -54,6 +60,7 @@ const RestaurantPage = () => {
             product={product}
             quantity={product.quantity}
             openModal={openModal}
+           
           />
         )
       }
@@ -66,7 +73,7 @@ const RestaurantPage = () => {
 
   const products = [...new Set(categoriesList)].map((category) => {
     return (
-      <ContainerProductCategory key={category}>
+      <ContainerProductCategory key={category} >
         <h2>{category}</h2>
         {renderProducts(category)}
       </ContainerProductCategory>
@@ -87,8 +94,8 @@ const RestaurantPage = () => {
         />
       </ContainerRestaurantsDetails>
       {products}
-      <ContainerModal open={open}>
-        <ModalSelect>
+      <ContainerModal open={open} onClick={(e) => (e.target === e.currentTarget ? closeModal() : null)}>
+        <ModalSelect >
           <p>Selecione a quantidade desejada</p>
           <FormControl fullWidth>
             <Select

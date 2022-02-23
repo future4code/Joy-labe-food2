@@ -109,12 +109,14 @@ export const History = styled.span`
   letter-spacing: -0.39px;
   text-align: center;
   color: var(--black);
+  
 `;
 export const HistoryDiv = styled.span`
   width: 22.5rem;
   height: 2.625rem;
   margin: 1rem 0 15.5rem;
   padding: 0.75rem 2rem;
+  text-align: center;
 `;
 export const Img=styled.img`
 width: 1.5rem;
