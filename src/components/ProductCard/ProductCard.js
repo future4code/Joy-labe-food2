@@ -6,7 +6,7 @@ import {
   QuantityContainer,
 } from "./styled";
 
-const ProductCard = ({ product, openModal, addToCart }) => {
+const ProductCard = ({ product, openModal, }) => {
   const { cart, setCart } = useContext(GlobalState);
   const [onCart, setOnCart] = useState(0);
 
@@ -24,8 +24,7 @@ const ProductCard = ({ product, openModal, addToCart }) => {
     cart.map((prod) => {
       if (prod.id === product.id) return setOnCart(prod.quantity);
     });
-    console.log(cart);
-  }, [cart]);
+  }, [cart, product.id]);
 
   return (
     <ContainerProduct>
