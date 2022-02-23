@@ -27,6 +27,7 @@ const RestaurantPage = () => {
   const [prod, setProd] = useState({})
 
   useEffect(() => {
+
     localStorage.setItem("cart", JSON.stringify(cart))
   }, [cart])
 
@@ -40,7 +41,7 @@ const RestaurantPage = () => {
     if(quantity>0)
     setCart([...cart, { ...prod, quantity: quantity }])
     setQuantity(0)
-
+    localStorage.setItem("cart", JSON.stringify(cart))
   }
 
   const closeModal=()=>{

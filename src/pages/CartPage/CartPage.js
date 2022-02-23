@@ -1,34 +1,31 @@
-import React, { useContext, useEffect } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import Footer from "../../components/Footer"
 import { Header } from "../../components/Header"
-import { Container } from "../../components/RestaurantCardDetails/styled"
+import ProductCard from "../../components/ProductCard/ProductCard"
 import { GlobalState } from "../../GlobalState/GlobalState"
+import { Container } from "./styled"
 
 const CartPage = () => {
   const { cart } = useContext(GlobalState)
+  const [renderCart, setRenderCart] = useState([])
 
-  const renderCart = () => {
-    const renderCart1 = JSON.parse(localStorage.getItem("cart")).map((item) => {
-      return item
-    })
-    return renderCart1
+  const renderCartFun = () => {
+    setRenderCart(JSON.parse(localStorage.getItem("cart")))
   }
 
   useEffect(() => {
-    renderCart()
+    localStorage.setItem("cart", JSON.stringify(cart))
+    renderCartFun()
   }, [cart])
 
   return (
     <div>
       <Header />
-      {renderCart().map((item) => {
-        return (
-          <Container>
-            <h1>{item.name}</h1>
-            <p>{item.quantity}</p>
-          </Container>
-        )
-      })}
+      <Container>
+        {renderCart?.map((item) => {
+          return <ProductCard product={item} />
+        })}
+      </Container>
       <Footer />
     </div>
   )
