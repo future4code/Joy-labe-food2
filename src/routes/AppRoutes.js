@@ -9,8 +9,9 @@ import RestaurantPage from "../pages/RestaurantPage/RestaurantPage"
 import CartPage from "../pages/CartPage/CartPage"
 import ProfilePage from "../pages/ProfilePage/ProfilePage"
 import EditProfilePage from "../pages/EditProfilePage/EditProfilePage"
-import EditAdressPage from "../pages/EditProfilePage/EditProfilePage"
+
 import { GlobalStorage } from "../GlobalState/GlobalState"
+import EditAdressPage from "../pages/EditAdressPage/EditAdressPage"
 
 const AppRoutes = () => {
 

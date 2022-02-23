@@ -1,29 +1,31 @@
-import React, { useContext, useEffect, useState } from "react"
-import { GlobalState } from "../../GlobalState/GlobalState"
-import { ContainerDetails, ContainerProduct, QuantityContainer } from "./styled"
+import React, { useContext, useEffect, useState } from "react";
+import { GlobalState } from "../../GlobalState/GlobalState";
+import {
+  ContainerDetails,
+  ContainerProduct,
+  QuantityContainer,
+} from "./styled";
 
-const ProductCard = ({ product, openModal }) => {
-  const { cart, setCart } = useContext(GlobalState)
-  const [onCart, setOnCart] = useState(0)
+const ProductCard = ({ product, openModal, addToCart }) => {
+  const { cart, setCart } = useContext(GlobalState);
+  const [onCart, setOnCart] = useState(0);
 
   const removeFromCart = (product) => {
     setCart(
       cart.filter((prod) => {
-        if (prod.quantity > 1 && prod.id === product.id) {
-          return (prod.quantity = prod.quantity - 1)
-        } else return product.id !== prod.id
+        return product.id !== prod.id;
       })
-    )
-    localStorage.setItem("cart", JSON.stringify(cart))
-    setOnCart(0)
-  }
+    );
+    localStorage.setItem("cart", JSON.stringify(cart));
+    setOnCart(0);
+  };
 
   useEffect(() => {
     cart.map((prod) => {
-      if (prod.id === product.id) return setOnCart(prod.quantity)
-    })
-    console.log(cart)
-  }, [cart])
+      if (prod.id === product.id) return setOnCart(prod.quantity);
+    });
+    console.log(cart);
+  }, [cart]);
 
   return (
     <ContainerProduct>
@@ -31,16 +33,20 @@ const ProductCard = ({ product, openModal }) => {
       <ContainerDetails>
         <h3>{product.name}</h3>
         <p>{product.description}</p>
-        <span>R${Number(product.price).toFixed(2)}</span>
+        <span>R$ {Number(product.price).toFixed(2)}</span>
         {!onCart ? (
           <button onClick={() => openModal(product)}>adicionar</button>
         ) : (
           <button onClick={() => removeFromCart(product)}>remover</button>
         )}
-        {onCart ? <QuantityContainer>{onCart}</QuantityContainer> : ""}
+        {onCart ? (
+          <QuantityContainer>{onCart}</QuantityContainer>
+        ) : (
+          ""
+        )}
       </ContainerDetails>
     </ContainerProduct>
-  )
-}
+  );
+};
 
-export default ProductCard
+export default ProductCard;

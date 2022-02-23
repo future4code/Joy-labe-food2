@@ -5,16 +5,34 @@ import useForm from "../../hooks/useForm"
 import logo from "../../assets/images/logo-future-eats-red.png"
 import { useNavigate } from "react-router-dom"
 import { goToAddressPage } from "../../routes/coordinator"
+import axios from "axios"
+import { BASE_URL } from "../../constants/urls"
 
 const SingUpPage = () => {
   const { form, onChangeForm, clearFields } = useForm({
     name: "",
     email: "",
     cpf: "",
-    password: "",
+    password: ""
+    
   })
 
   const navigate = useNavigate()
+ 
+  const signUp=(e)=>{
+    e.preventDefault();
+   
+    axios.post(`${BASE_URL}/signup`,form)
+    .then(({data})=>{
+      alert('Usuário cadastrado com sucesso');
+
+      localStorage.setItem("token",data.token)
+      goToAddressPage(navigate)
+    }).catch((err)=>{
+      console.log(err.response.data.message);
+    })
+
+  }
 
   return (
     <div>
@@ -22,7 +40,7 @@ const SingUpPage = () => {
       <Container>
         <img src={logo} alt="logo red" />
         <h1>Cadastrar</h1>
-        <form>
+        <form onSubmit={signUp} method="POST">
           <StyledTextField
             id="outlined-basic"
             name="name"
@@ -69,21 +87,22 @@ const SingUpPage = () => {
           />
           <StyledTextField
             id="outlined-basic"
-            name="password"
+            name="confirmPassword"
             label="Confirmar"
             placeholder="Confirme a senha anterior"
             variant="outlined"
-            value={form.password}
-            onChange={onChangeForm}
+       
             type="password"
             required
           />
           <StyledButton
-            onClickCapture={() => goToAddressPage(navigate)}
+            
             textPrimary={"primary"}
             color={"primary"}
             fullWidth
             variant="contained"
+            type="button"
+            onClick={signUp}
           >
             Criar
           </StyledButton>

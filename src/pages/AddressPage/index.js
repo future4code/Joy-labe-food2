@@ -1,23 +1,43 @@
+import axios from "axios";
 import React from "react";
 import { Header } from "../../components/Header";
+import { BASE_URL } from "../../constants/urls";
 import useForm from "../../hooks/useForm";
 import { Container, StyledButton, StyledTextField } from "./styled";
 
 const AddressPage = () => {
   const { form, onChangeForm, clearFields } = useForm({
-    logradouro: "",
+    street: "",
     number: "",
-    complemento: "",
-    bairro: "",
+    complement: "",
+    neighbourhood: "",
     city: "",
     state: "",
   });
+
+  const addAddress=(e)=>{
+    e.preventDefault();
+    const headers = {
+      headers: {
+        auth: localStorage.getItem("token"),
+      }
+    }
+    const body=form
+    console.log(body);
+    axios.put(`${BASE_URL}/address`,body,headers)
+    .then((res)=>{
+      alert('Usuário cadastrado');
+    }).catch((err)=>{
+      alert(err.response.data.message);
+    })
+    clearFields()
+  }
   return (
     <>
       <Header />
       <Container>
         <h1>Meu Endereço</h1>
-        <form>
+        <form onSubmit={addAddress} method="PUT">
           <StyledTextField
             id="outlined-basic"
             type="text"
@@ -26,8 +46,8 @@ const AddressPage = () => {
             autoComplete
             label="Logradouro"
             variant="outlined"
-            name="logradouro"
-            value={form.logradouro}
+            name="street"
+            value={form.street}
             onChange={onChangeForm}
           />
 
@@ -47,12 +67,12 @@ const AddressPage = () => {
             id="outlined-basic"
             type="text"
             placeholder="Apto./Bloco"
-            required
+         
             autoComplete
             label="Complemento"
             variant="outlined"
-            name="complemento"
-            value={form.complemento}
+            name="complement"
+            value={form.complement}
             onChange={onChangeForm}
           />
           <StyledTextField
@@ -63,8 +83,8 @@ const AddressPage = () => {
             autoComplete
             label="Bairro"
             variant="outlined"
-            name="bairro"
-            value={form.bairro}
+            name="neighbourhood"
+            value={form.neighbourhood}
             onChange={onChangeForm}
           />
           <StyledTextField
@@ -76,7 +96,7 @@ const AddressPage = () => {
             label="Cidade"
             variant="outlined"
             name="city"
-            value={form.cidade}
+            value={form.city}
             onChange={onChangeForm}
           />
           <StyledTextField
