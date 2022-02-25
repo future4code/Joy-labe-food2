@@ -1,8 +1,8 @@
-import React from 'react'
-import Footer from '../../components/Footer'
-import { Header } from '../../components/Header'
-import useRequestData from '../../hooks/useRequestData'
-import Edit from '../../assets/images/edit.png'
+import React from "react"
+import Footer from "../../components/Footer"
+import { Header } from "../../components/Header"
+import useRequestData from "../../hooks/useRequestData"
+import Edit from "../../assets/images/edit.png"
 import {
   AddressDiv,
   AddressTitle,
@@ -16,17 +16,17 @@ import {
   Img,
   Path,
   ProfileDetails,
-  UserName
-} from './styled'
-import { useNavigate } from 'react-router-dom'
+  UserName,
+} from "./styled"
+import { useNavigate } from "react-router-dom"
 import {
   goToEditProfilePage,
-  goToEditAdressPage
-} from '../../routes/coordinator'
+  goToEditAdressPage,
+} from "../../routes/coordinator"
 
 const ProfilePage = () => {
-  const { data } = useRequestData({}, '/profile')
-  const { dataHistory } = useRequestData({}, '/orders/history')
+  const { data } = useRequestData({}, "/profile")
+  const { dataHistory } = useRequestData({}, "/orders/history")
   const navigate = useNavigate()
   return (
     <div>
@@ -37,7 +37,6 @@ const ProfilePage = () => {
           <Img src={Edit} onClick={() => goToEditProfilePage(navigate)} />
         </DatesDiv>
         <Email>{data?.user?.email}</Email>
-        <br />
         <CPF>{data?.user?.cpf}</CPF>
 
         <AddressDiv>
@@ -50,10 +49,10 @@ const ProfilePage = () => {
 
         <HistoryContainer>
           <HistoryTitle>Histórico de Pedidos</HistoryTitle>
-          <Path></Path>
+          <Path/>
           <HistoryDiv>
             <History>
-              {dataHistory ? 'Histórico' : 'Você não realizou nenhum pedido'}
+              {dataHistory ? "Histórico" : "Você não realizou nenhum pedido"}
             </History>
           </HistoryDiv>
         </HistoryContainer>
