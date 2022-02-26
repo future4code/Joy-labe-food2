@@ -34,7 +34,7 @@ const EditAdressPage = () => {
   };
 
   return (
-    <>
+    <div>
       <Header />
       <Container>
         <h1>Meu Endereço</h1>
@@ -123,7 +123,7 @@ const EditAdressPage = () => {
           </StyledButton>
         </form>
       </Container>
-    </>
+    </div>
   );
 };
 

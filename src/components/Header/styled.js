@@ -15,7 +15,7 @@ export const ContainerHeader = styled.div`
   position: fixed;
   top: 0;
   font-family:  "Roboto";
-  
+
   p {
     align-self: center;
   }
@@ -25,3 +25,7 @@ export const ContainerHeader = styled.div`
     height: 36px;
   }
 `;
+
+export const Div = styled.div`
+  padding: 0.35em;
+`
