@@ -1,6 +1,5 @@
 import axios from "axios"
 import React from "react"
-import Footer from "../../components/Footer"
 import { Header } from "../../components/Header"
 import { BASE_URL } from "../../constants/urls"
 import useForm from "../../hooks/useForm"

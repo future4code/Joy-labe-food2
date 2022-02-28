@@ -1,7 +1,6 @@
 import React from 'react'
 import { InitialContainer, LogoContainer, ImgElarge } from './styled'
 import { useNavigate } from 'react-router-dom'
-import { LoginPage } from '../../routes/AppRoutes'
 import Logo from '../../assets/images/logo-future-eats@2x.png'
 
 const InitialPage = () => {

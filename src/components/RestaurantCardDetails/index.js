@@ -6,8 +6,7 @@ import {
   ContainerDetails,
   ContainerNumb,
   Img,
-  Name,
-  ShippingText,
+  Name
 } from "./styled";
 
 export const RestaurantCardDetails = ({
