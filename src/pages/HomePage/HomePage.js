@@ -65,31 +65,28 @@ const HomePage = () => {
   })
 
   return (
-    <div>
+
+    <Container>
+       
       <Header />
-      {isLoading ? <Loading/> :
-      <Container>
-        <StyledTextField
-          id="outlined-search"
-          type="search"
-          placeholder="Restaurante"
-          InputProps={{
-            color: "text",
-            startAdornment: (
-              <InputAdornment position="start">
-                <SearchIcon />
-              </InputAdornment>
-            ),
-          }}
-        />
-        <ContainerCatetories>{categories}</ContainerCatetories>
-        {selectedCategory.category !== ""
-          ? filterByCategory()
-          : restaurantsList}
-      </Container>
-}
+      {isLoading && <Loading/>}
+      <StyledTextField
+        id="outlined-search"
+        type="search"
+        placeholder="Restaurante"
+        InputProps={{
+          color: "text",
+          startAdornment: (
+            <InputAdornment position="start">
+              <SearchIcon />
+            </InputAdornment>
+          ),
+        }}
+      />
+      <ContainerCatetories>{categories}</ContainerCatetories>
+      {selectedCategory.category !== "" ? filterByCategory() : restaurantsList}
       <Footer />
-    </div>
+    </Container>
   )
 }
 

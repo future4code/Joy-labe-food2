@@ -7,8 +7,7 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 60px 0;
-  height: auto;
+  margin: 60px;
 `
 
 export const StyledTextField = styled(TextField)`

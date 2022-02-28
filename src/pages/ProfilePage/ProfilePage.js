@@ -1,7 +1,7 @@
-import React from "react";
-import Footer from "../../components/Footer";
-import { Header } from "../../components/Header";
-import useRequestData from "../../hooks/useRequestData";
+import React from "react"
+import Footer from "../../components/Footer"
+import { Header } from "../../components/Header"
+import useRequestData from "../../hooks/useRequestData"
 import Edit from "../../assets/images/edit.png"
 
 import {
@@ -17,15 +17,17 @@ import {
   Path,
   ProfileDetails,
   UserName,
-} from "./styled";
-import { useNavigate } from "react-router-dom";
-import { goToEditProfilePage, goToEditAdressPage } from "../../routes/coordinator";
-import { Loading } from "../../components/Loading";
-
+} from "./styled"
+import { useNavigate } from "react-router-dom"
+import {
+  goToEditProfilePage,
+  goToEditAdressPage,
+} from "../../routes/coordinator"
+import { Loading } from "../../components/Loading"
 
 const ProfilePage = () => {
-  const { data, isLoading } = useRequestData({}, "/profile");
-  const { dataHistory } = useRequestData({}, "/orders/history");
+  const { data, isLoading } = useRequestData({}, "/profile")
+  const { dataHistory } = useRequestData({}, "/orders/history")
   const navigate = useNavigate()
   return (
     <div>
@@ -60,7 +62,7 @@ const ProfilePage = () => {
       
       <Footer />
     </div>
-  );
-};
+  )
+}
 
-export default ProfilePage;
+export default ProfilePage
