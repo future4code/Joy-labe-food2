@@ -9,7 +9,7 @@ import axios from "axios"
 import { BASE_URL } from "../../constants/urls"
 
 const SingUpPage = () => {
-  const { form, onChangeForm, clearFields } = useForm({
+  const { form, onChangeForm } = useForm({
     name: "",
     email: "",
     cpf: "",

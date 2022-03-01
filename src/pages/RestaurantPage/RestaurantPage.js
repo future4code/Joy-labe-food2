@@ -6,6 +6,7 @@ import {
 import React, { useContext, useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { Header } from "../../components/Header"
+import { Loading } from "../../components/Loading"
 import ProductCard from "../../components/ProductCard/ProductCard"
 import { RestaurantCardDetails } from "../../components/RestaurantCardDetails"
 import { GlobalState } from "../../GlobalState/GlobalState"
@@ -20,7 +21,7 @@ import {
 
 const RestaurantPage = () => {
   const param = useParams()
-  const { data } = useRequestData({}, `/restaurants/${param.id}`)
+  const { data, isLoading } = useRequestData({}, `/restaurants/${param.id}`)
   const [quantity, setQuantity] = useState(0)
   const [open, setOpen] = useState(false)
   const { cart, setCart } = useContext(GlobalState)
@@ -84,51 +85,54 @@ const RestaurantPage = () => {
   return (
     <div>
       <Header />
-      <ContainerRestaurantsDetails>
-        <RestaurantCardDetails
-          logoUrl={data?.restaurant?.logoUrl}
-          name={data?.restaurant?.name}
-          category={data?.restaurant?.category}
-          deliveryTime={data?.restaurant?.deliveryTime}
-          shipping={data?.restaurant?.shipping}
-          address={data?.restaurant?.address}
-        />
-      </ContainerRestaurantsDetails>
-      {products}
-      <ContainerModal open={open} onClick={(e) => (e.target === e.currentTarget ? closeModal() : null)}>
-        <ModalSelect >
-          <p>Selecione a quantidade desejada</p>
-          <FormControl fullWidth>
-            <Select
-              labelId="demo-simple-select-label"
-              id="demo-simple-select"
-              value={quantity}
-              onChange={handleChange}
-            >
-              <MenuItem value={0} disabled>
-                0
-              </MenuItem>
-              <MenuItem value={1}>1</MenuItem>
-              <MenuItem value={2}>2</MenuItem>
-              <MenuItem value={3}>3</MenuItem>
-              <MenuItem value={4}>4</MenuItem>
-              <MenuItem value={5}>5</MenuItem>
-              <MenuItem value={6}>6</MenuItem>
-              <MenuItem value={7}>7</MenuItem>
-              <MenuItem value={8}>8</MenuItem>
-              <MenuItem value={9}>9</MenuItem>
-              <MenuItem value={10}>10</MenuItem>
-            </Select>
-          </FormControl>
-          <StyledButton
-            variant="text"
-            color="primary"
-            onClick={() => addToCart()}
-          >
-            ADICIONAR AO CARRINHO
-          </StyledButton>
-        </ModalSelect>
-      </ContainerModal>
+      { isLoading ? <Loading/>:
+       <ContainerRestaurantsDetails>
+       <RestaurantCardDetails
+         logoUrl={data?.restaurant?.logoUrl}
+         name={data?.restaurant?.name}
+         category={data?.restaurant?.category}
+         deliveryTime={data?.restaurant?.deliveryTime}
+         shipping={data?.restaurant?.shipping}
+         address={data?.restaurant?.address}
+       />
+     </ContainerRestaurantsDetails>
+     }
+     {products}
+     <ContainerModal open={open} onClick={(e) => (e.target === e.currentTarget ? closeModal() : null)}>
+       <ModalSelect >
+         <p>Selecione a quantidade desejada</p>
+         <FormControl fullWidth>
+           <Select
+             labelId="demo-simple-select-label"
+             id="demo-simple-select"
+             value={quantity}
+             onChange={handleChange}
+           >
+             <MenuItem value={0} disabled>
+               0
+             </MenuItem>
+             <MenuItem value={1}>1</MenuItem>
+             <MenuItem value={2}>2</MenuItem>
+             <MenuItem value={3}>3</MenuItem>
+             <MenuItem value={4}>4</MenuItem>
+             <MenuItem value={5}>5</MenuItem>
+             <MenuItem value={6}>6</MenuItem>
+             <MenuItem value={7}>7</MenuItem>
+             <MenuItem value={8}>8</MenuItem>
+             <MenuItem value={9}>9</MenuItem>
+             <MenuItem value={10}>10</MenuItem>
+           </Select>
+         </FormControl>
+         <StyledButton
+           variant="text"
+           color="primary"
+           onClick={() => addToCart()}
+         >
+           ADICIONAR AO CARRINHO
+         </StyledButton>
+       </ModalSelect>
+     </ContainerModal>
+     
     </div>
   )
 }

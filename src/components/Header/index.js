@@ -1,7 +1,7 @@
 import React from "react"
 import { useNavigate } from "react-router-dom"
 import back from "../../assets/images/back.png"
-import { ContainerHeader, Div } from "./styled"
+import { ContainerHeader } from "./styled"
 export const Header = () => {
   const navigate = useNavigate()
 

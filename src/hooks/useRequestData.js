@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 
 const useRequestData = (initialData, path) => {
   const [data, setData] = useState(initialData)
+  const [isLoading,setIsLoading]=useState(false)
 
   const headers = {
     headers: {
@@ -13,19 +14,22 @@ const useRequestData = (initialData, path) => {
 
 
   useEffect(() => {
+    setIsLoading(true)
     if (localStorage.getItem("token")) {
       axios
         .get(`${BASE_URL}${path}`, headers)
         .then(({ data }) => {
           setData(data)
+          setIsLoading(false)
         })
         .catch((err) => {
           console.log(err)
+          setIsLoading(false)
         })
     }
   }, [path])
 
-  return { data }
+  return { data, isLoading }
 }
 
 export default useRequestData

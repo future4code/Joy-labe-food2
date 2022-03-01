@@ -1,4 +1,5 @@
 import React, { createContext, useState } from "react"
+import useRequestData from "../hooks/useRequestData";
 
 export const GlobalState = createContext()
 
@@ -8,7 +9,7 @@ export const GlobalStorage = ({ children }) => {
       ? JSON.parse(localStorage.getItem("cart"))
       : []
   )
-
+  
   return (
     <GlobalState.Provider value={{ cart, setCart }}>
       {children}

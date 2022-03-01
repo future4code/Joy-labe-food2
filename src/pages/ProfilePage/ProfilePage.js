@@ -3,6 +3,7 @@ import Footer from "../../components/Footer"
 import { Header } from "../../components/Header"
 import useRequestData from "../../hooks/useRequestData"
 import Edit from "../../assets/images/edit.png"
+
 import {
   AddressDiv,
   AddressTitle,
@@ -10,7 +11,6 @@ import {
   DatesDiv,
   Email,
   History,
-  HistoryContainer,
   HistoryDiv,
   HistoryTitle,
   Img,
@@ -23,40 +23,43 @@ import {
   goToEditProfilePage,
   goToEditAdressPage,
 } from "../../routes/coordinator"
+import { Loading } from "../../components/Loading"
 
 const ProfilePage = () => {
-  const { data } = useRequestData({}, "/profile")
+  const { data, isLoading } = useRequestData({}, "/profile")
   const { dataHistory } = useRequestData({}, "/orders/history")
   const navigate = useNavigate()
   return (
     <div>
       <Header />
+      {isLoading ? <Loading/> : 
       <ProfileDetails>
-        <DatesDiv>
-          <UserName>{data?.user?.name}</UserName>
-          <Img src={Edit} onClick={() => goToEditProfilePage(navigate)} />
-        </DatesDiv>
-        <Email>{data?.user?.email}</Email>
-        <CPF>{data?.user?.cpf}</CPF>
+      <DatesDiv>
+      <UserName>{data?.user?.name}</UserName>
+      <Img src={Edit} onClick={()=>goToEditProfilePage(navigate)}/>
+      </DatesDiv>
+      <Email>{data?.user?.email}</Email><br/>
+      <CPF>{data?.user?.cpf}</CPF>
 
-        <AddressDiv>
-          <div>
-            <AddressTitle>Endereço Cadastrado</AddressTitle>
-            <Img src={Edit} onClick={() => goToEditAdressPage(navigate)} />
-          </div>
-          <p>{data?.user?.address}</p>
-        </AddressDiv>
-
-        <HistoryContainer>
-          <HistoryTitle>Histórico de Pedidos</HistoryTitle>
-          <Path/>
-          <HistoryDiv>
-            <History>
-              {dataHistory ? "Histórico" : "Você não realizou nenhum pedido"}
-            </History>
-          </HistoryDiv>
-        </HistoryContainer>
-      </ProfileDetails>
+      <AddressDiv>
+        <AddressTitle>Endereço Cadastrado</AddressTitle>
+        <Img src={Edit} onClick={()=>goToEditAdressPage(navigate)}/>
+        <p>{data?.user?.address}</p>
+       
+      </AddressDiv>
+      
+      <div>
+        <HistoryTitle>Histórico de Pedidos</HistoryTitle>
+        <Path></Path>
+        <HistoryDiv>
+          <History>
+            {dataHistory ? "Histórico" : "Você não realizou nenhum pedido"}
+          </History>
+        </HistoryDiv>
+      </div>
+    </ProfileDetails>
+   }
+      
       <Footer />
     </div>
   )

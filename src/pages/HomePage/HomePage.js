@@ -11,9 +11,10 @@ import {
 import { InputAdornment } from "@mui/material"
 import RestaurantCard from "../../components/RestaurantCard/RestaurantCard"
 import useRequestData from "../../hooks/useRequestData"
+import { Loading } from "../../components/Loading"
 
 const HomePage = () => {
-  const { data } = useRequestData({}, "/restaurants")
+  const { data, isLoading } = useRequestData({}, "/restaurants")
   const [selectedCategory, setSelectedCategory] = useState({
     active: false,
     category: "",
@@ -64,8 +65,11 @@ const HomePage = () => {
   })
 
   return (
+
     <Container>
+       
       <Header />
+      {isLoading && <Loading/>}
       <StyledTextField
         id="outlined-search"
         type="search"

@@ -21,3 +21,7 @@ export const AdressTitle = styled.p`
   letter-spacing: -0.39px;
   color: ${secondaryColor};
 `
+export const CartEmpty=styled.p`
+text-align: center;
+font-family: Roboto;
+`
