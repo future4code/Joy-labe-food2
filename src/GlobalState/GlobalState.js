@@ -1,5 +1,4 @@
 import React, { createContext, useState } from "react"
-import useRequestData from "../hooks/useRequestData";
 
 export const GlobalState = createContext()
 

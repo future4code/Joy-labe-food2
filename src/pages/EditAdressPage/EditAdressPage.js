@@ -1,14 +1,11 @@
-import axios from "axios";
 import React from "react";
 import FormEditAddressPage from "../../components/FormEditAddressPage";
 import { Header } from "../../components/Header";
-import { BASE_URL } from "../../constants/urls";
-import useForm from "../../hooks/useForm";
 import useRequestData from "../../hooks/useRequestData";
 import { Container } from "../../components/FormEditAddressPage/styled";
 
 const EditAdressPage = () => {
-  const { data,isLoading} = useRequestData({}, "/profile/address");
+  const { data} = useRequestData({}, "/profile/address");
 console.log(data);
   return (
     <div>
