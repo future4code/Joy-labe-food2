@@ -5,15 +5,13 @@ import { Container } from "../../components/FormEditProfile/styled";
 import useRequestData from "../../hooks/useRequestData";
 
 const EditProfilePage = () => {
-  const { data,isLoading} = useRequestData({}, "/profile");
- 
-  
+  const { data } = useRequestData({}, "/profile");
 
   return (
     <div>
       <Header />
       <Container>
-     {data.user && <FormEditProfile dataProfile={data}/>}  
+        {data.user && <FormEditProfile dataProfile={data} />}
       </Container>
     </div>
   );

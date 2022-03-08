@@ -1,115 +1,123 @@
-import React from "react"
-import { Header } from "../../components/Header"
-import { Container, StyledTextField, StyledButton } from "./styled"
-import useForm from "../../hooks/useForm"
-import logo from "../../assets/images/logo-future-eats-red.png"
-import { useNavigate } from "react-router-dom"
-import { goToAddressPage } from "../../routes/coordinator"
-import axios from "axios"
-import { BASE_URL } from "../../constants/urls"
+import React from "react";
+import { Header } from "../../components/Header";
+import { Container, StyledButton } from "./styled";
+import useForm from "../../hooks/useForm";
+import logo from "../../assets/images/logo-future-eats-red.png";
+import { useNavigate } from "react-router-dom";
+import { ErrorMessage } from "../../components/ErrorMessage";
+import { signUp } from "../../services/user";
+import { Input } from "../../components/Input";
 
 const SingUpPage = () => {
-  const { form, onChangeForm } = useForm({
+  const { form, onChangeForm, errors, setErrors, span, setSpan } = useForm({
     name: "",
     email: "",
     cpf: "",
-    password: ""
-    
-  })
+    password: "",
+    confirmPassword: "",
+  });
 
-  const navigate = useNavigate()
- 
-  const signUp=(e)=>{
+  const navigate = useNavigate();
+
+  const validate = () => {
+    let temp = {};
+    temp.password =
+      form.password.length > 5
+        ? ""
+        : form.password === ""
+        ? "Campo de preenchimento obrigatório"
+        : "Mínimo de 6 caracteres";
+    temp.confirmPassword =
+      form.confirmPassword === ""
+        ? "Campo de preenchimento obrigatório"
+        : form.confirmPassword.length > 5
+        ? form.confirmPassword === form.password
+          ? ""
+          : "Deve ser a mesma que a anterior."
+        : "Mínimo de 6 caracteres";
+    setErrors({
+      ...temp,
+    });
+    return Object.values(temp).every((x) => x === "");
+  };
+  const onSignUp = (e) => {
     e.preventDefault();
-   
-    axios.post(`${BASE_URL}/signup`,form)
-    .then(({data})=>{
-      alert('Usuário cadastrado com sucesso');
-
-      localStorage.setItem("token",data.token)
-      goToAddressPage(navigate)
-    }).catch((err)=>{
-      console.log(err.response.data.message);
-    })
-
-  }
+    if (validate()) {
+      signUp(form, navigate, setSpan);
+    }
+  };
 
   return (
     <div>
-      <Header/>
+      <Header />
       <Container>
         <img src={logo} alt="logo red" />
         <h1>Cadastrar</h1>
-        <form onSubmit={signUp} method="POST">
-          <StyledTextField
+        <form onSubmit={onSignUp} method="POST">
+          <Input
             id="outlined-basic"
             name="name"
             label="Nome"
             placeholder="Nome e Sobrenome"
-            variant="outlined"
             value={form.name}
             onChange={onChangeForm}
             type="text"
-            required
           />
-          <StyledTextField
+          <Input
             id="outlined-basic"
             name="email"
             label="E-mail"
             placeholder="email@email.com"
-            variant="outlined"
             value={form.email}
             onChange={onChangeForm}
             type="email"
-            required
           />
-          <StyledTextField
+          <Input
             id="outlined-basic"
             name="cpf"
             label="CPF"
             placeholder="000.000.000-00"
-            variant="outlined"
             value={form.cpf}
             onChange={onChangeForm}
             type="text"
-            required
           />
-          <StyledTextField
+          <Input
             id="outlined-basic"
             name="password"
             label="Senha"
             placeholder="Mínimo 6 caracteres"
-            variant="outlined"
             value={form.password}
             onChange={onChangeForm}
             type="password"
-            required
+            password={true}
+            error={errors.password}
           />
-          <StyledTextField
+          <Input
             id="outlined-basic"
             name="confirmPassword"
             label="Confirmar"
             placeholder="Confirme a senha anterior"
-            variant="outlined"
-       
+            value={form.confirmPassword}
+            onChange={onChangeForm}
             type="password"
-            required
+            password={true}
+            error={errors.confirmPassword}
           />
+          <ErrorMessage errorMsg={span} />
           <StyledButton
-            
             textPrimary={"primary"}
             color={"primary"}
             fullWidth
             variant="contained"
-            type="button"
-            onClick={signUp}
+            type="submit"
+            margin={"normal"}
           >
             Criar
           </StyledButton>
         </form>
       </Container>
     </div>
-  )
-}
+  );
+};
 
-export default SingUpPage
+export default SingUpPage;
