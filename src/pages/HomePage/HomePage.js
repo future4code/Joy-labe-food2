@@ -19,6 +19,12 @@ const HomePage = () => {
     active: false,
     category: "",
   })
+  const [searchBar, setSearchBar]  = useState("")
+
+  const handleSearch = ({target}) => {
+    setSearchBar(target.value)
+    console.log(searchBar)
+  }
 
   const handleSelectCategory = (category) => {
     if (selectedCategory.category === category && selectedCategory.active) {
@@ -71,6 +77,8 @@ const HomePage = () => {
       <Header />
       {isLoading && <Loading/>}
       <StyledTextField
+        alue={searchBar}
+        onChange={handleSearch}
         id="outlined-search"
         type="search"
         placeholder="Restaurante"
