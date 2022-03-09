@@ -24,6 +24,7 @@ import {
   goToEditAdressPage,
 } from "../../routes/coordinator"
 import { Loading } from "../../components/Loading"
+import  Histo  from "../../components/History"
 
 const ProfilePage = () => {
   const { data, isLoading } = useRequestData({}, "/profile")
@@ -55,7 +56,9 @@ const ProfilePage = () => {
           <History>
             {dataHistory ? "Histórico" : "Você não realizou nenhum pedido"}
           </History>
+         
         </HistoryDiv>
+        <Histo/>
       </div>
     </ProfileDetails>
    }
