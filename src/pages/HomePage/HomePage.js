@@ -19,6 +19,11 @@ const HomePage = () => {
     active: false,
     category: "",
   })
+  const [searchBar, setSearchBar]  = useState("")
+
+  const handleSearch = ({target}) => {
+    setSearchBar(target.value)
+  }
 
   const handleSelectCategory = (category) => {
     if (selectedCategory.category === category && selectedCategory.active) {
@@ -64,6 +69,22 @@ const HomePage = () => {
     return <RestaurantCard key={restaurant.id} restaurant={restaurant} />
   })
 
+
+  const filterBySearch = () => {
+
+    const searchedRestaurants = restaurantsList?.filter(({props}) => {
+      return props.restaurant.name?.toLowerCase().includes(searchBar.toLowerCase())
+    })
+
+    if(searchedRestaurants.length){
+      return searchedRestaurants
+    }else{
+      return <span>Não encontramos :(</span>
+    }
+
+  }
+
+
   return (
 
     <Container>
@@ -71,6 +92,8 @@ const HomePage = () => {
       <Header />
       {isLoading && <Loading/>}
       <StyledTextField
+        alue={searchBar}
+        onChange={handleSearch}
         id="outlined-search"
         type="search"
         placeholder="Restaurante"
@@ -84,7 +107,7 @@ const HomePage = () => {
         }}
       />
       <ContainerCatetories>{categories}</ContainerCatetories>
-      {selectedCategory.category !== "" ? filterByCategory() : restaurantsList}
+      {selectedCategory.category !== "" ? filterByCategory() : searchBar !== "" ? filterBySearch() : restaurantsList}
       <Footer />
     </Container>
   )
