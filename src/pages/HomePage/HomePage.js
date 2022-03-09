@@ -23,7 +23,6 @@ const HomePage = () => {
 
   const handleSearch = ({target}) => {
     setSearchBar(target.value)
-    console.log(searchBar)
   }
 
   const handleSelectCategory = (category) => {
@@ -70,6 +69,22 @@ const HomePage = () => {
     return <RestaurantCard key={restaurant.id} restaurant={restaurant} />
   })
 
+
+  const filterBySearch = () => {
+
+    const searchedRestaurants = restaurantsList?.filter(({props}) => {
+      return props.restaurant.name?.toLowerCase().includes(searchBar.toLowerCase())
+    })
+
+    if(searchedRestaurants.length){
+      return searchedRestaurants
+    }else{
+      return <span>Não encontramos :(</span>
+    }
+
+  }
+
+
   return (
 
     <Container>
@@ -92,7 +107,7 @@ const HomePage = () => {
         }}
       />
       <ContainerCatetories>{categories}</ContainerCatetories>
-      {selectedCategory.category !== "" ? filterByCategory() : restaurantsList}
+      {selectedCategory.category !== "" ? filterByCategory() : searchBar !== "" ? filterBySearch() : restaurantsList}
       <Footer />
     </Container>
   )
