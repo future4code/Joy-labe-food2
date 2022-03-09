@@ -117,6 +117,7 @@ export const History = styled.span`
   letter-spacing: -0.39px;
   text-align: center;
   color: var(--black);
+  
 `
 
 export const Img = styled.img`
