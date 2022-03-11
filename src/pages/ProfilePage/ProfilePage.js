@@ -30,6 +30,12 @@ const ProfilePage = () => {
   const { data, isLoading } = useRequestData({}, "/profile")
   const { dataHistory } = useRequestData({}, "/orders/history")
   const navigate = useNavigate()
+
+  const logout = () => {
+    localStorage.removeItem("token");
+    navigate("/");
+  };
+
   return (
     <div>
       <Header />
@@ -62,6 +68,8 @@ const ProfilePage = () => {
       </div>
     </ProfileDetails>
    }
+
+   <button onClick={logout}>Logout</button>
       
       <Footer />
     </div>
