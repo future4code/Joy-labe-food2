@@ -71,7 +71,7 @@ Para começar, você terá que  instalar em sua máquina as seguintes ferramenta
 
 ```bash
 # Clone este repositório
-$ git clone <https://github.com/future4code/Joy-labe-food2>
+$ git clone https://github.com/future4code/Joy-labe-food2
 
 # Acesse a pasta do projeto no terminal
 $ cd ./Joy-labe-food2
