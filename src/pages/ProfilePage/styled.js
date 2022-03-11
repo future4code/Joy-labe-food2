@@ -1,5 +1,10 @@
 import styled from 'styled-components'
-import { secondaryColor } from '../../constants/colors'
+import { primaryColor, secondaryColor } from '../../constants/colors'
+
+export const Container = styled.div`
+  margin: 60px 0;
+  font-family: "Roboto"; 
+`
 
 export const ProfileDetails = styled.div`
   margin: 64px 0 80px 0;
@@ -125,3 +130,20 @@ export const Img = styled.img`
   height: 1.5rem;
   object-fit: contain;
 `
+export const ButtonStyled = styled.div`
+  display: flex;
+  justify-content:center;
+  align-items:center;
+  padding: 1rem 1rem;
+`
+export const StyledButton = styled.button`
+  width: 20.5rem;
+  height: 2.625rem;
+  padding: 0.75rem 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 2px;
+  background-color: ${primaryColor};
+  cursor: pointer;
+  margin: 10px 0;
+  `
