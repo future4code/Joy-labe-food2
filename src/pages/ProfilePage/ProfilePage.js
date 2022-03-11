@@ -7,6 +7,8 @@ import Edit from "../../assets/images/edit.png"
 import {
   AddressDiv,
   AddressTitle,
+  ButtonStyled,
+  Container,
   CPF,
   DatesDiv,
   Email,
@@ -16,6 +18,7 @@ import {
   Img,
   Path,
   ProfileDetails,
+  StyledButton,
   UserName,
 } from "./styled"
 import { useNavigate } from "react-router-dom"
@@ -25,6 +28,7 @@ import {
 } from "../../routes/coordinator"
 import { Loading } from "../../components/Loading"
 import  Histo  from "../../components/History"
+
 
 const ProfilePage = () => {
   const { data, isLoading } = useRequestData({}, "/profile")
@@ -37,7 +41,7 @@ const ProfilePage = () => {
   };
 
   return (
-    <div>
+    <Container>
       <Header />
       {isLoading ? <Loading/> : 
       <ProfileDetails>
@@ -68,11 +72,21 @@ const ProfilePage = () => {
       </div>
     </ProfileDetails>
    }
-
-   <button onClick={logout}>Logout</button>
-      
+<ButtonStyled>
+  <></>
+   <StyledButton
+   
+   textPrimary={"primary"}
+   color={"primary"}
+   fullWidth
+   variant="contained"
+   type="submit"
+   margin={"normal"}
+   onClick={logout}>Logout</StyledButton>
+   </ButtonStyled>
+   <></>   
       <Footer />
-    </div>
+    </Container>
   )
 }
 
