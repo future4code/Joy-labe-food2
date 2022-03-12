@@ -38,7 +38,7 @@ export const CartDetails=styled.div`
 export const StyledButton = styled.button`
   width: 20.5rem;
   height: 2.625rem;
-  padding: 0.75rem 1rem;
+  padding:  1rem;
   font-weight: bold;
   border: none;
   border-radius: 2px;

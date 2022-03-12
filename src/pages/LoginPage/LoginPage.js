@@ -12,10 +12,11 @@ import { goToHomePage, goToSingUpPage } from "../../routes/coordinator"
 import { useNavigate } from "react-router-dom"
 import { BASE_URL } from "../../constants/urls"
 import useProtectedPage from "../../hooks/useProtectedPage"
+import { Input } from "../../components/Input"
 
 const LoginPage = () => {
   useProtectedPage()
-  const { form, onChangeForm, clearFields } = useForm({
+  const { form, onChangeForm, errors, clearFields } = useForm({
     email: "",
     password: "",
   })
@@ -55,18 +56,17 @@ const LoginPage = () => {
           value={form.email}
           onChange={onChangeForm}
         />
-        <StyledTextField
-          id="outlined-basic"
-          type="password"
-          placeholder="Mínimo 6 caracteres"
-          required
-          autoComplete
-          label="Senha"
-          variant="outlined"
-          name="password"
-          value={form.password}
-          onChange={onChangeForm}
-        />
+       <Input
+            id="outlined-basic"
+            name="password"
+            label="Senha"
+            placeholder="Mínimo 6 caracteres"
+            value={form.password}
+            onChange={onChangeForm}
+            type="password"
+            password={true}
+            error={errors.password}
+          />
         <StyledButton
           textPrimary={"primary"}
           color={"primary"}

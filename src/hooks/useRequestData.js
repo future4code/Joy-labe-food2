@@ -23,7 +23,7 @@ const useRequestData = (initialData, path) => {
           setIsLoading(false)
         })
         .catch((err) => {
-          console.log(err)
+          console.log(err.response.data.message)
           setIsLoading(false)
         })
     }
