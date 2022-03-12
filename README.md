@@ -2,6 +2,9 @@
 
 Link do Surge: <a href="http://labe_joy_food.surge.sh/">Labe4Foods</a>
 
+Caso não queira se cadastrar pode usar os dados a seguir: <br>
+👤usuário: userlabenu@labefood.com.br<br>
+🔑 senha : 654321
 <h4 align="center"> 
     :construction:  :hammer: Projeto em construção :hammer: :construction:
 </h4>
