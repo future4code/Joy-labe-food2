@@ -1,10 +1,8 @@
-import axios from "axios";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Header } from "../../components/Header";
-import { BASE_URL } from "../../constants/urls";
 import useForm from "../../hooks/useForm";
-import { goToHomePage } from "../../routes/coordinator";
+import { signAddress } from "../../services/user";
 import { Container, StyledButton, StyledTextField } from "./styled";
 
 const AddressPage = () => {
@@ -19,21 +17,7 @@ const AddressPage = () => {
 const navigate= useNavigate()
   const addAddress=(e)=>{
     e.preventDefault();
-    const headers = {
-      headers: {
-        auth: localStorage.getItem("token"),
-      }
-    }
-    const body=form
-    console.log(body);
-    axios.put(`${BASE_URL}/address`,body,headers)
-    .then((res)=>{
-      alert('Usuário cadastrado');
-      goToHomePage(navigate)
-    }).catch((err)=>{
-      alert(err.response.data.message);
-    })
-    clearFields()
+   signAddress(form,navigate,clearFields)
   }
   return (
     <>

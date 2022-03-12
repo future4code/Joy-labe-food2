@@ -3,10 +3,13 @@ import FormEditAddressPage from "../../components/FormEditAddressPage";
 import { Header } from "../../components/Header";
 import useRequestData from "../../hooks/useRequestData";
 import { Container } from "../../components/FormEditAddressPage/styled";
+import useProtectedPage from "../../hooks/useProtectedPage";
 
 const EditAdressPage = () => {
   const { data} = useRequestData({}, "/profile/address");
 console.log(data);
+
+useProtectedPage()
   return (
     <div>
       <Header />

@@ -12,8 +12,10 @@ import { InputAdornment } from "@mui/material"
 import RestaurantCard from "../../components/RestaurantCard/RestaurantCard"
 import useRequestData from "../../hooks/useRequestData"
 import { Loading } from "../../components/Loading"
+import useProtectedPage from "../../hooks/useProtectedPage"
 
 const HomePage = () => {
+  useProtectedPage()
   const { data, isLoading } = useRequestData({}, "/restaurants")
   const [selectedCategory, setSelectedCategory] = useState({
     active: false,
@@ -34,7 +36,7 @@ const HomePage = () => {
   }
 
   const filterByCategory = () => {
-    const filters = data.restaurants?.filter((restaurant) => {
+    const filters = data?.restaurants?.filter((restaurant) => {
       if (restaurant.category === selectedCategory.category) return true
     })
 
@@ -42,8 +44,8 @@ const HomePage = () => {
       return <RestaurantCard key={restaurant.id} restaurant={restaurant} />
     })
   }
-
-  const categoriesList = data.restaurants
+console.log(data);
+  const categoriesList = data?.restaurants
     ?.map((restaurant) => {
       return restaurant.category
     })
@@ -65,7 +67,7 @@ const HomePage = () => {
     )
   })
 
-  const restaurantsList = data.restaurants?.map((restaurant) => {
+  const restaurantsList = data?.restaurants?.map((restaurant) => {
     return <RestaurantCard key={restaurant.id} restaurant={restaurant} />
   })
 
