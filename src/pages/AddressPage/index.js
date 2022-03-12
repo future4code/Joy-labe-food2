@@ -1,8 +1,10 @@
 import axios from "axios";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { Header } from "../../components/Header";
 import { BASE_URL } from "../../constants/urls";
 import useForm from "../../hooks/useForm";
+import { goToHomePage } from "../../routes/coordinator";
 import { Container, StyledButton, StyledTextField } from "./styled";
 
 const AddressPage = () => {
@@ -14,7 +16,7 @@ const AddressPage = () => {
     city: "",
     state: "",
   });
-
+const navigate= useNavigate()
   const addAddress=(e)=>{
     e.preventDefault();
     const headers = {
@@ -27,6 +29,7 @@ const AddressPage = () => {
     axios.put(`${BASE_URL}/address`,body,headers)
     .then((res)=>{
       alert('Usuário cadastrado');
+      goToHomePage(navigate)
     }).catch((err)=>{
       alert(err.response.data.message);
     })

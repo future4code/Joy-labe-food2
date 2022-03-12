@@ -1,6 +1,6 @@
 import React from "react";
 import { Header } from "../../components/Header";
-import { Container, StyledButton } from "./styled";
+import { Container, StyledButton, StyledTextField } from "./styled";
 import useForm from "../../hooks/useForm";
 import logo from "../../assets/images/logo-future-eats-red.png";
 import { useNavigate } from "react-router-dom";
@@ -54,28 +54,35 @@ const SingUpPage = () => {
         <img src={logo} alt="logo red" />
         <h1>Cadastrar</h1>
         <form onSubmit={onSignUp} method="POST">
-          <Input
+          <StyledTextField
             id="outlined-basic"
             name="name"
             label="Nome"
+            variant="outlined"
+            required
             placeholder="Nome e Sobrenome"
             value={form.name}
             onChange={onChangeForm}
             type="text"
           />
-          <Input
+
+          <StyledTextField
             id="outlined-basic"
-            name="email"
-            label="E-mail"
+            type="email"
             placeholder="email@email.com"
+            required
+            label="E-mail"
+            variant="outlined"
+            name="email"
             value={form.email}
             onChange={onChangeForm}
-            type="email"
           />
-          <Input
+          <StyledTextField
             id="outlined-basic"
             name="cpf"
             label="CPF"
+            variant="outlined"
+            required
             placeholder="000.000.000-00"
             value={form.cpf}
             onChange={onChangeForm}
