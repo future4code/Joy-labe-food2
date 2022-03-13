@@ -7,9 +7,7 @@ import useProtectedPage from "../../hooks/useProtectedPage";
 
 const EditAdressPage = () => {
   const { data} = useRequestData({}, "/profile/address");
-console.log(data);
 
-useProtectedPage()
   return (
     <div>
       <Header />

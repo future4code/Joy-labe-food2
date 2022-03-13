@@ -132,12 +132,12 @@ export const Img = styled.img`
 `
 export const ButtonStyled = styled.div`
   display: flex;
-  justify-content:center;
+ 
   align-items:center;
   padding: 1rem 1rem;
 `
 export const StyledButton = styled.button`
-  width: 20.5rem;
+  width: 22rem;
   height: 2.625rem;
   padding: 0.75rem 1rem;
   font-weight: bold;
@@ -146,4 +146,5 @@ export const StyledButton = styled.button`
   background-color: ${primaryColor};
   cursor: pointer;
   margin: 10px 0;
+  
   `

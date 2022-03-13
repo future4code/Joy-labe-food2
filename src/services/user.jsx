@@ -15,14 +15,13 @@ export const signUp = (form, navigate, setSpan) => {
 };
 
 export const signAddress=(form,navigate,clearFields)=>{
-  const headers = {
-    headers: {
-      auth: localStorage.getItem("token"),
-    }
-  }
-  const body=form
-  console.log(body);
-  axios.put(`${BASE_URL}/address`,body,headers)
+  const config = {
+    method: 'put',
+    url: BASE_URL + "/address",
+    headers: { 'auth': localStorage.getItem('token') },
+    data: form,
+}
+  axios(config)
   .then((res)=>{
     alert('Usuário cadastrado');
     goToLoginPage(navigate)

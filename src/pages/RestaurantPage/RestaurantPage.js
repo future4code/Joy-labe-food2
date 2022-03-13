@@ -1,3 +1,4 @@
+import { LanSharp } from "@mui/icons-material"
 import {
   FormControl,
   MenuItem,
@@ -24,7 +25,7 @@ const RestaurantPage = () => {
   const { data, isLoading } = useRequestData({}, `/restaurants/${param.id}`)
   const [quantity, setQuantity] = useState(0)
   const [open, setOpen] = useState(false)
-  const { cart, setCart } = useContext(GlobalState)
+  const { cart, setCart,dataRestaurant,setDataRestaurant } = useContext(GlobalState)
   const [prod, setProd] = useState({})
 
   useEffect(() => {
@@ -32,16 +33,32 @@ const RestaurantPage = () => {
     localStorage.setItem("cart", JSON.stringify(cart))
   }, [cart])
 
+console.log(data);
+console.log(cart);
+console.log(dataRestaurant);
   const openModal = (product) => {
-    setOpen(true)
-    setProd({ ...product })
+    if(cart.length > 0){
+      if(data.restaurant.id === cart[0].idRestaurant){
+        setOpen(true)
+        setProd({ ...product,idRestaurant:param.id })
+      } else {
+        alert("Infelizmente você não pode realizar pedidos em diferentes restaurantes! Verifique seu carrinho")
+        
+      }
+    } else {
+      setOpen(true)
+      setProd({ ...product,idRestaurant:param.id })
+    }
+    
   }
 
   const addToCart = () => {
-    setOpen(!open)
+    
     if(quantity>0)
-    setCart([...cart, { ...prod, quantity: quantity }])
+    setCart([...cart, { ...prod, quantity: quantity}])
     setQuantity(0)
+    setDataRestaurant(data.restaurant)
+    localStorage.setItem("restaurant",JSON.stringify(data.restaurant))
     localStorage.setItem("cart", JSON.stringify(cart))
   }
 
