@@ -5,7 +5,7 @@ export const FooterDiv = styled.div`
   background-color: white;
   position: fixed;
   bottom: 0;
-  object-fit: contain;
+
 `
 
 export const FooterFlex = styled.div`
@@ -14,6 +14,9 @@ export const FooterFlex = styled.div`
   border-top: 1px solid rgb(184, 184, 184);
   height: 42px;
   padding: 5px;
-  object-fit: contain;
+  
   align-items: center;
+img{
+  object-fit: contain;
+}
 `

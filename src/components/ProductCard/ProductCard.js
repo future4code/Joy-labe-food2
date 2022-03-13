@@ -22,8 +22,9 @@ const ProductCard = ({ product, openModal, }) => {
 
   useEffect(() => {
     cart.map((prod) => {
-      if (prod.id === product.id) return setOnCart(prod.quantity);
-    });
+        if (prod.id === product.id)
+          return setOnCart(prod.quantity);
+      });
   }, [cart, product.id]);
 
   return (

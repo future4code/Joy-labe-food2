@@ -17,7 +17,7 @@ import useProtectedPage from "../../hooks/useProtectedPage";
 const HomePage = () => {
 
   const { data, isLoading } = useRequestData({}, "/restaurants");
-  console.log(data);
+
   const [selectedCategory, setSelectedCategory] = useState({
     active: false,
     category: "",

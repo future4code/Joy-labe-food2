@@ -106,7 +106,6 @@ export const HistoryContainer = styled.div`
   margin-top: 1rem;
 `
 export const HistoryDiv = styled.div`
-  height: 2.625rem;
   text-align: center;
 `
 export const History = styled.span`

@@ -41,6 +41,7 @@ console.log(dataRestaurant);
       if(data.restaurant.id === cart[0].idRestaurant){
         setOpen(true)
         setProd({ ...product,idRestaurant:param.id })
+       
       } else {
         alert("Infelizmente você não pode realizar pedidos em diferentes restaurantes! Verifique seu carrinho")
         
@@ -48,6 +49,7 @@ console.log(dataRestaurant);
     } else {
       setOpen(true)
       setProd({ ...product,idRestaurant:param.id })
+      
     }
     
   }
@@ -60,6 +62,7 @@ console.log(dataRestaurant);
     setDataRestaurant(data.restaurant)
     localStorage.setItem("restaurant",JSON.stringify(data.restaurant))
     localStorage.setItem("cart", JSON.stringify(cart))
+    closeModal()
   }
 
   const closeModal=()=>{
