@@ -54,9 +54,6 @@ Este projeto atual temos que criar uma aplicação nos moldes do App Ifood, acho
 
 <h2 id="nfunciona">:rocket: O que ainda não funciona </h2>
 
-❎Somatória dos produtos<br>
-❎Cálculo do frete<br>
-❎Histórico dos pedidos<br>
 ❎Responsividade para Desktop<br>
 
 <h4 align="right"><a href="#topo">Topo</a></h4>
