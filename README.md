@@ -63,14 +63,14 @@ Este projeto atual temos que criar uma aplicação nos moldes do App Ifood, acho
 
 <h2 id="como-usar">:computer: Como Usar </h2>
 📱Como qualquer App, este também foi pensando para melhor atender via celular, ao toque dos dedos e ao alcance das mãos.<br>
-📱Faço seu cadastro com nome, e-mail, CPF, senha.<br>
+📱Faça seu cadastro com nome, e-mail, CPF e senha.<br>
 📱Adicione seu endereço completo para facilitar a entrega.<br>
 📱Escolha o tipo de comida que deseja ou busque pelo seu restaurante favorito.<br>
 📱Faça seu pedido e confirme a forma de pagamento, você terá a soma dos itens pedido acrescido do valor da entrega para a sua região.<br>
 <h4 align="right"><a href="#topo">Topo</a></h4>
 
 <h2 id="pre-requisitos">✅ 🖼️ Pré-requisitos </h2>
-Para começar, você terá que  instalar em sua máquina as seguintes ferramentas: Git, Node.js. e um editor de código-fonte para trabalhar com o código, nós usamos o VSCode
+Para começar, você terá que  instalar em sua máquina as seguintes ferramentas: Git, Node.js. e um editor de código-fonte para trabalhar com o código, nós usamos o VS Code
 
 ```bash
 # Clone este repositório
