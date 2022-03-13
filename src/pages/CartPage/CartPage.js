@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { ActiveOrder } from "../../components/ActiveOrder";
 import Footer from "../../components/Footer";
 import { Header } from "../../components/Header";
 import { Loading } from "../../components/Loading";
@@ -22,7 +23,7 @@ import {
 } from "./styled";
 
 const CartPage = () => {
-  const { cart, dataRestaurant, total, setTotal, getActiveOrder } = useContext(GlobalState);
+  const { cart, dataRestaurant, getActiveOrder } = useContext(GlobalState);
   const { data, isLoading } = useRequestData({}, "/profile");
   const navigate=useNavigate()
   const { form, onChangeForm } = useForm({
@@ -55,7 +56,7 @@ const CartPage = () => {
     axios(config)
       .then(({data}) => {
         alert("pedido feito");
-        getActiveOrder()
+       
         return data
       })
       .catch((err) => {
@@ -63,21 +64,18 @@ const CartPage = () => {
       });
       goToHomePage(navigate)
   };
-  const calculaTotal = () => {
-    const preco = cart
-      .map((item) => {
-        return item.price * item.quantity;
-      })
-      .reduce((a, b) => a + b, 0);
-
-    setTotal(preco + dataRestaurant.shipping);
-    return preco + dataRestaurant.shipping;
-  };
+  const valor = cart.map((c) => {
+    return c.quantity * c.price
+})
+let soma = 0.00
+for (let i = 0; i < valor.length; i++) {
+    soma = soma + valor[i]
+}
+let somaWithFrete = soma + dataRestaurant?.shipping
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
     renderCartFun();
-    calculaTotal();
   }, [cart]);
 
   return (
@@ -102,8 +100,8 @@ const CartPage = () => {
         {renderCart?.map((item) => {
           return <ProductCard product={item} />;
         })}
-        <p>Frete R$ {dataRestaurant?.shipping},00</p>
-        <p>SUBTOTAL R$ {total},00</p>
+        <p>Frete R$ {cart.length > 0 ? dataRestaurant.shipping.toFixed(2) : '0,00'}</p>
+        <p>SUBTOTAL R$ {soma === 0 ? soma : somaWithFrete.toFixed(2)}</p>
         <p>Forma de Pagamento</p>
         <Path></Path>
         <form onSubmit={placeOrder}>
@@ -134,12 +132,13 @@ const CartPage = () => {
             variant="contained"
             type="submit"
             margin={"normal"}
+            
           >
             Confirmar
           </StyledButton>
         </form>
       </CartDetails>
-
+       { /*<ActiveOrder />*/}
       <Footer />
     </Container>
   );

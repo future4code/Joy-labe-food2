@@ -15,10 +15,8 @@ export const ContainerHeader = styled.div`
   position: fixed;
   top: 0;
   font-family:  "Roboto";
-  object-fit: contain;
   p {
     align-self: center;
-    object-fit: contain;
   }
   
   img {

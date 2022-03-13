@@ -35,7 +35,7 @@ const ProfilePage = () => {
   const { data, isLoading } = useRequestData({}, "/profile");
   const [dataHistory, setDataHistory] = useState([]);
   const navigate = useNavigate();
-  console.log(dataHistory);
+
   const logout = () => {
     localStorage.removeItem("token");
     navigate("/");
@@ -97,7 +97,7 @@ const ProfilePage = () => {
     const date = convertDate(item.createdAt)
     return <Histo key={index} nome={item.restaurantName} total={item.totalPrice} data={date}/>;
   });
- 
+
   return (
     <div>
     <Container>
@@ -125,10 +125,10 @@ const ProfilePage = () => {
             <Path></Path>
             <HistoryDiv>
               <History>
-                {dataHistory ? list : "Você não realizou nenhum pedido"}
+                {dataHistory?.orders?.length > 0 ? list : "Você não realizou nenhum pedido"}
               </History>
             </HistoryDiv>
-          
+        
           </div>
           
         </ProfileDetails>

@@ -13,10 +13,11 @@ import { useNavigate } from "react-router-dom"
 import { BASE_URL } from "../../constants/urls"
 import useProtectedPage from "../../hooks/useProtectedPage"
 import { Input } from "../../components/Input"
+import { ErrorMessage } from "../../components/ErrorMessage"
 
 const LoginPage = () => {
   useProtectedPage()
-  const { form, onChangeForm, errors, clearFields } = useForm({
+  const { form, onChangeForm, errors, span,setSpan, clearFields } = useForm({
     email: "",
     password: "",
   })
@@ -32,7 +33,7 @@ const LoginPage = () => {
         goToHomePage(navigate)
       })
       .catch((error) => {
-        console.log(error.response.data.message)
+        setSpan(error.response.data.message)
       })
       .finally(clearFields)
   }
@@ -75,6 +76,7 @@ const LoginPage = () => {
         >
           Entrar
         </StyledButton>
+        <ErrorMessage errorMsg={span} />
         <StyledButtonSignUp onClick={() => goToSingUpPage(navigate)}>
           Não possui cadastro? Clique aqui.
         </StyledButtonSignUp>

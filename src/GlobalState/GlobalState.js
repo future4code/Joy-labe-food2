@@ -31,7 +31,7 @@ export const GlobalStorage = ({ children }) => {
         window.alert("Erro ao realizar solicitação.\n Tente novamente.");
       });
   };
-  const [total, setTotal] = useState(0);
+
   return (
     <GlobalState.Provider
       value={{
@@ -39,8 +39,6 @@ export const GlobalStorage = ({ children }) => {
         setCart,
         dataRestaurant,
         setDataRestaurant,
-        total,
-        setTotal,
         activeOrder,
         getActiveOrder,
       }}

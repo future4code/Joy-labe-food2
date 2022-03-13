@@ -1,6 +1,6 @@
 import axios from "axios";
 import { BASE_URL } from "../constants/urls";
-import { goToAddressPage, goToLoginPage } from "../routes/coordinator";
+import { goToAddressPage, goToHomePage } from "../routes/coordinator";
 
 export const signUp = (form, navigate, setSpan) => {
   axios
@@ -22,9 +22,10 @@ export const signAddress=(form,navigate,clearFields)=>{
     data: form,
 }
   axios(config)
-  .then((res)=>{
+  .then(({data})=>{
+    localStorage.setItem("token", data.token);
     alert('Usuário cadastrado');
-    goToLoginPage(navigate)
+    goToHomePage(navigate)
   }).catch((err)=>{
     alert(err.response.data.message);
   })
