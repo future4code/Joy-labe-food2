@@ -34,7 +34,7 @@ Caso não queira se cadastrar pode usar os dados a seguir: <br>
 
 <h2 id="sobre">:notebook: Sobre </h2> 
 💬 Nós, estudantes da  <a href="http://www.labenu.com.br" target="_blank">Labenu</a>  , somos desafiados a cada projeto, realizá-lo com excelência, paixão e conhecimento.
-Este projeto atual temos que criar uma aplicação nos moldes do Appp Ifood, acho que estamos no caminho certo.
+Este projeto atual temos que criar uma aplicação nos moldes do App Ifood, acho que estamos no caminho certo.
 <h4 align="right"><a href="#topo">Topo</a></h4>
 
 <h2 id="funciona">:rocket: O que funciona </h2>
