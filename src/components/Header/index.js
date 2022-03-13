@@ -22,7 +22,7 @@ export const Header = () => {
     } else if (window.location.pathname === "/perfil/editar-endereco") {
       return "Endereço"
     } else if (window.location.pathname === "/carrinho") {
-      return "Carrinho"
+      return "Meu Carrinho"
     }
   }
   return (
