@@ -113,10 +113,11 @@ const ProfilePage = () => {
           <Email>{data?.user?.email}</Email>
           <br />
           <CPF>{data?.user?.cpf}</CPF>
-
           <AddressDiv>
+            <div>
             <AddressTitle>Endereço Cadastrado</AddressTitle>
             <Img src={Edit} onClick={() => goToEditAdressPage(navigate)} />
+            </div>
             <p>{data?.user?.address}</p>
           </AddressDiv>
 

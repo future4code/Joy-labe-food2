@@ -1,9 +1,9 @@
-import styled from 'styled-components'
-import { primaryColor, secondaryColor } from '../../constants/colors'
+import styled from "styled-components"
+import { primaryColor, secondaryColor } from "../../constants/colors"
 
 export const Container = styled.div`
   margin: 60px 0;
-  font-family: "Roboto"; 
+  font-family: "Roboto";
 `
 
 export const ProfileDetails = styled.div`
@@ -34,7 +34,7 @@ export const AddressDiv = styled.div`
   justify-content: space-between;
   background-color: #eee;
   padding: 1rem 1rem;
-  
+
   div {
     align-items: center;
     display: flex;
@@ -121,7 +121,6 @@ export const History = styled.span`
   letter-spacing: -0.39px;
   text-align: center;
   color: var(--black);
-  
 `
 
 export const Img = styled.img`
@@ -131,13 +130,13 @@ export const Img = styled.img`
 `
 export const ButtonStyled = styled.div`
   display: flex;
- 
-  align-items:center;
+  align-items: center;
+  justify-content: center;
   padding: 1rem 1rem;
 `
 export const StyledButton = styled.button`
-  width: 22rem;
-  height: 2.625rem;
+  width: 100%;
+  display: block;
   padding: 0.75rem 1rem;
   font-weight: bold;
   border: none;
@@ -145,5 +144,4 @@ export const StyledButton = styled.button`
   background-color: ${primaryColor};
   cursor: pointer;
   margin: 10px 0;
-  
-  `
+`
