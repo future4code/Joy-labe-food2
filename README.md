@@ -20,7 +20,7 @@ Caso não queira se cadastrar pode usar os dados a seguir: <br>
    
    * [Como usar](#como-usar)
    
-   * [Pre Requisitos](#pre-requisitos)
+   * [Pré-Requisitos](#pre-requisitos)
    
    * [Tecnologias](#tecnologias)
       * Trello
