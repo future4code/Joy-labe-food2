@@ -1,6 +1,6 @@
 <h1 align="center">Labe 4 Foods - Joy - Labenu</h1>
 
-Link do Surge: <a href="http://labe_joy_food.surge.sh/">Labe4Foods</a>
+Link do Surge: <a href="http://labe4foodjoy.surge.sh/">Labe4Foods</a>
 
 Caso não queira se cadastrar pode usar os dados a seguir: <br>
 👤usuário: userlabenu@labefood.com.br<br>
@@ -31,6 +31,19 @@ Caso não queira se cadastrar pode usar os dados a seguir: <br>
       * Material UI
     
    * [Imagens](#images)
+        *  * [Tela de entrada](#entrada)
+        *  * [Tela de login](#login)
+        *  * [Tela de login - Preenchida](#login2)
+        *  * [Tela de cadastro do usuário](#cadastrouser)
+        *  * [Tela de cadastro de endereço](#cadastroend)
+        *  * [Tela de restaurantes](#rest)
+        *  * [Tela do carrinho sem pedido](#carvazio)
+        *  * [Tela do carrinho](#carrinho)
+        *  * [Tela do pedido em andamento](#andamento)
+        *  * [Tela do perfil](#perfil)
+        *  * [Tela de editar perfil](#editperfil)
+        *  * [Tela de editar endereço](#editend)
+        
 
 <h2 id="sobre">:notebook: Sobre </h2> 
 💬 Nós, estudantes da  <a href="http://www.labenu.com.br" target="_blank">Labenu</a>  , somos desafiados a cada projeto, realizá-lo com excelência, paixão e conhecimento.
@@ -88,14 +101,53 @@ $ npm start
 <h4 align="right"><a href="#topo">Topo</a></h4>
 
 <h2 id="images">🖼️ Imagens </h2>
+
+<h3 id="entrada">Tela de entrada</h3>
 <img alt="Tela de entrada" width="315" height="537" src="https://user-images.githubusercontent.com/89301596/157923207-4998d10e-63d7-4d6d-9702-9a6a2ce9db24.png" />
+<h4 align="right"><a href="#topo">Topo</a></h4>
+
+<h3 id="login">Tela de login</h3>
 <img alt="Tela de login" width="315"  height="537" src="https://user-images.githubusercontent.com/89301596/157923241-7bfe966e-bd93-47a9-b767-cd18929d58e9.png"/>
-<img alt="Tela de login" width="315" height="537"  src="https://user-images.githubusercontent.com/89301596/157923314-307104fd-2eb9-4041-aada-c37768005a7d.png"/>
+<h4 align="right"><a href="#topo">Topo</a></h4>
+
+<h3 id="login2">Tela de login</h3>
+<img alt="Tela de login" width="315" height="537"  src="https://user-images.githubusercontent.com/89301596/158087408-a756bd4d-e0fb-424d-87f8-5c2060b5328d.png"/>
+<h4 align="right"><a href="#topo">Topo</a></h4>
+
+<h3 id="cadastrouser">Tela de cadastro</h3>
 <img alt="Tela de cadastro" width="315"  height="537" src="https://user-images.githubusercontent.com/89301596/157923379-cec854f8-c7dc-49b8-92f6-f0a44fdad331.png"/>
+<h4 align="right"><a href="#topo">Topo</a></h4>
+
+<h3 id="cadastroend">Tela de cadastro de endereço</h3>
+<img alt="Tela de cadastro" width="315"  height="537" src="https://user-images.githubusercontent.com/89301596/158088361-0bacfced-c1f7-41d8-81ae-a4baa9ab553f.png"/>
+<h4 align="right"><a href="#topo">Topo</a></h4>
+
+<h3 id="rest">Tela de restaurantes</h3>
 <img alt="Tela de restaurantes" width="315"  height="537" src="https://user-images.githubusercontent.com/89301596/157923464-8d433aac-82e8-4d43-9eb3-52ddc649be84.png"/>
-<img alt="Tela do carrinho" width="315"  height="537" src="https://user-images.githubusercontent.com/89301596/157923486-83f5f593-d4a3-407a-863c-e7dab01eaa03.png"/>
-<img alt="Tela de perfil" width="315"  height="537" src="https://user-images.githubusercontent.com/89301596/157923530-41424950-cc6d-4e4c-84f7-672f33593a8d.png"/>
-<img alt="Tela de editar perfil" width="315"  height="537" src="https://user-images.githubusercontent.com/89301596/157923580-e7036224-b857-46d4-b9e1-c642712a33bf.png"/>
+<h4 align="right"><a href="#topo">Topo</a></h4>
+
+<h3 id="carvazio">Tela do carrinho sem pedido</h3>
+<img alt="Tela de restaurantes sem pedido" width="315"  height="537" src="https://user-images.githubusercontent.com/89301596/158087572-403547a7-9f75-490f-8861-cec442bf4f38.png"/>
+<h4 align="right"><a href="#topo">Topo</a></h4>
+
+<h3 id="carrinho">Tela do meu carrinho</h3>
+<img alt="Tela do carrinho" width="315"  height="537" src="https://user-images.githubusercontent.com/89301596/158089033-8364b978-cb2f-4ef6-836d-ac0b1f68b7b4.png"/>
+<h4 align="right"><a href="#topo">Topo</a></h4>
+
+<h3 id="andamento">Tela do pedido em andamento</h3>
+<img alt="Tela do pedido em andamento" width="315"  height="537" src="https://user-images.githubusercontent.com/89301596/158089091-566dd28f-7bd6-4a79-a555-7b99d8760d81.png"/>
+<h4 align="right"><a href="#topo">Topo</a></h4>
+
+<h3 id="perfil">Tela do perfil</h3>
+<img alt="Tela de perfil" width="315"  height="537" src="https://user-images.githubusercontent.com/89301596/158087500-fcd1d1a3-ec57-4dab-94f0-a727a5f524d5.png"/>
+<h4 align="right"><a href="#topo">Topo</a></h4>
+
+<h3 id="editperfil">Tela de editar perfil</h3>
+<img alt="Tela de editar perfil" width="315"  height="537" src="https://user-images.githubusercontent.com/89301596/158089468-79cab6d8-7d27-403a-ad3a-9b8b3b78e66d.png"/>
+<h4 align="right"><a href="#topo">Topo</a></h4>
+
+<h3 id="editend">Tela de editar endereço</h3>
+<img alt="Tela de editar perfil" width="315"  height="537" src="https://user-images.githubusercontent.com/89301596/158087786-ea20288b-ae10-4899-92dd-a21dc02b2369.png"/>
 <h4 align="right"><a href="#topo">Topo</a></h4>
 
 <h2 align="center">
