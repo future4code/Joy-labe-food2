@@ -132,7 +132,7 @@ const CartPage = () => {
           <label htmlFor="dinheiro">Dinheiro</label>
           <br />
           <br />
-          <input
+          <Input
             type="radio"
             value={"creditcard"}
             required

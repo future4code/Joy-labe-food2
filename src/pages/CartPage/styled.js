@@ -102,8 +102,5 @@ export const SubTotal = styled.p`
 `
 export const Input = styled.input`
   background-color: black;
-
-  :checked {
-    color: black;
-  }
+  accent-color: black;
 `
