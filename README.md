@@ -139,7 +139,7 @@ $ npm start
 <img alt="Tela do pedido em andamento" width="315"  height="537" src="https://user-images.githubusercontent.com/89301596/158089091-566dd28f-7bd6-4a79-a555-7b99d8760d81.png"/>
 <h4 align="right"><a href="#topo">Topo</a></h4>
 
-<h3 id="concluido">Tela do pedido em concluído</h3>
+<h3 id="concluido">Tela do pedido concluído</h3>
 <img alt="Tela do pedido concluido" width="315"  height="537" src="https://user-images.githubusercontent.com/89301596/158093058-1745f3f0-554c-455a-87f0-e29d7df8f8ee.png"/>
 <h4 align="right"><a href="#topo">Topo</a></h4>
 
